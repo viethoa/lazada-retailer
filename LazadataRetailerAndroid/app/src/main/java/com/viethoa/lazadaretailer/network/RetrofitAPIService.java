@@ -3,7 +3,8 @@ package com.viethoa.lazadaretailer.network;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.viethoa.lazadaretailer.configs.NetworkConfig;
-import com.viethoa.lazadaretailer.network.services.UserService.UserAPIs;
+import com.viethoa.lazadaretailer.network.services.storeservice.StoreAPIs;
+import com.viethoa.lazadaretailer.network.services.userservice.UserAPIs;
 
 import javax.inject.Inject;
 
@@ -16,6 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitAPIService {
 
     private UserAPIs userAPIs;
+    private StoreAPIs storeAPIs;
 
     @Inject
     public RetrofitAPIService(CustomInterceptor customInterceptor) {
@@ -47,5 +49,9 @@ public class RetrofitAPIService {
 
     public UserAPIs getUserAPIs() {
         return userAPIs;
+    }
+
+    public StoreAPIs getStoreAPIs() {
+        return storeAPIs;
     }
 }

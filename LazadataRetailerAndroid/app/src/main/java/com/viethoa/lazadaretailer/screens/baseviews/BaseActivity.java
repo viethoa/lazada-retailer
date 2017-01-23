@@ -143,7 +143,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     // Loading Dialog
     //----------------------------------------------------------------------------------------------
 
-    protected void showLoadingDialog() {
+    public void showLoadingDialog() {
         if (isFinishing() || loadingDialog == null || loadingDialog.isShowing()) {
             return;
         }
@@ -151,7 +151,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         loadingDialog.show();
     }
 
-    protected void dismissLoadingDialog() {
+    public void dismissLoadingDialog() {
         if (loadingDialog == null) {
             return;
         }

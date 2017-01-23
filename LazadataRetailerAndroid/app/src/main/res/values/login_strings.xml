@@ -3,6 +3,6 @@
 
 <string name="login_hint_email">Nhập email</string>
 <string name="login_hint_password">Nhập mật khẩu</string>
-<string name="login_login">LOG IN</string>
+<string name="login_login">Đăng Nhập</string>
 
 </resources>

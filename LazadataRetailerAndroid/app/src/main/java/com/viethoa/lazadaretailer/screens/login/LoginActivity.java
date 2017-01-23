@@ -38,6 +38,7 @@ public class LoginActivity extends BaseSnackBarActivity implements LoginViewMode
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         // Remember logged in
         if (userMemoryCache.get() != null) {
@@ -45,10 +46,17 @@ public class LoginActivity extends BaseSnackBarActivity implements LoginViewMode
             return;
         }
 
-        super.onCreate(savedInstanceState);
+        // Content view
         setContentView(R.layout.activity_login);
 
+        // Init view model
         loginViewModel.initialize(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        loginViewModel.destroy();
     }
 
     //----------------------------------------------------------------------------------------------
@@ -81,6 +89,7 @@ public class LoginActivity extends BaseSnackBarActivity implements LoginViewMode
 
     @OnClick(R.id.btn_log_in)
     protected void btnLoginClicked() {
+        showLoadingDialog();
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
         loginViewModel.login(email, password);
@@ -92,11 +101,6 @@ public class LoginActivity extends BaseSnackBarActivity implements LoginViewMode
         if (e != null) {
             showTopErrorMessage(e.getMessage());
         }
-    }
-
-    @Override
-    public void showLoading() {
-        showLoadingDialog();
     }
 
     @Override

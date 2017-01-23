@@ -5,9 +5,8 @@ import rx.subscriptions.CompositeSubscription;
 
 public abstract class BaseViewModel<T extends BaseViewModel.Listener> {
 
-    protected T listener;
-
     private CompositeSubscription mCompositeSubscription;
+    protected T listener;
 
     public void destroy() {
         onDestroy();
@@ -36,5 +35,6 @@ public abstract class BaseViewModel<T extends BaseViewModel.Listener> {
 
     public interface Listener {
 
+        void onError(Throwable e);
     }
 }

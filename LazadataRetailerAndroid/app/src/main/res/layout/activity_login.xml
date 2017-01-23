@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:hint="@string/login_hint_email"
-                android:inputType="number"
+                android:inputType="textAutoComplete"
                 android:maxLines="1" />
 
             <com.viethoa.lazadaretailer.screens.widget.SecureEditTextBox

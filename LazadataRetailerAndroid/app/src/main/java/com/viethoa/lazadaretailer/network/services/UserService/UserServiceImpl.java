@@ -1,4 +1,4 @@
-package com.viethoa.lazadaretailer.network.services.UserService;
+package com.viethoa.lazadaretailer.network.services.userservice;
 
 import com.viethoa.lazadaretailer.caches.UserMemoryCache;
 import com.viethoa.lazadaretailer.models.User;

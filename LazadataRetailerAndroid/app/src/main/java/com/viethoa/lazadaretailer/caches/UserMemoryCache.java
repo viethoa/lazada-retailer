@@ -40,6 +40,14 @@ public class UserMemoryCache extends BaseMemoryCache<User> {
         return "";
     }
 
+    public synchronized long getUserID() {
+        if (get() == null) {
+            return 0;
+        } else {
+            return get().getId();
+        }
+    }
+
     //----------------------------------------------------------------------------------------------
     // Setters
     //----------------------------------------------------------------------------------------------

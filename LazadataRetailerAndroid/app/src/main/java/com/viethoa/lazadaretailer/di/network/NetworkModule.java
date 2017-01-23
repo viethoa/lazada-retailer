@@ -2,9 +2,12 @@ package com.viethoa.lazadaretailer.di.network;
 import com.viethoa.lazadaretailer.caches.UserMemoryCache;
 import com.viethoa.lazadaretailer.network.CustomInterceptor;
 import com.viethoa.lazadaretailer.network.RetrofitAPIService;
-import com.viethoa.lazadaretailer.network.services.UserService.UserAPIs;
-import com.viethoa.lazadaretailer.network.services.UserService.UserService;
-import com.viethoa.lazadaretailer.network.services.UserService.UserServiceImpl;
+import com.viethoa.lazadaretailer.network.services.storeservice.StoreAPIs;
+import com.viethoa.lazadaretailer.network.services.storeservice.StoreService;
+import com.viethoa.lazadaretailer.network.services.storeservice.StoreServiceImpl;
+import com.viethoa.lazadaretailer.network.services.userservice.UserAPIs;
+import com.viethoa.lazadaretailer.network.services.userservice.UserService;
+import com.viethoa.lazadaretailer.network.services.userservice.UserServiceImpl;
 
 import javax.inject.Singleton;
 
@@ -29,8 +32,17 @@ public class NetworkModule {
     }
 
     @Provides
-    @Singleton
     UserService provideUserService(UserServiceImpl userService) {
         return userService;
+    }
+
+    @Provides
+    StoreAPIs provideStoreAPIs(RetrofitAPIService retrofitAPIService) {
+        return retrofitAPIService.getStoreAPIs();
+    }
+
+    @Provides
+    StoreService provideStoreService(StoreServiceImpl storeService) {
+        return storeService;
     }
 }

@@ -37,7 +37,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/user/sign_in", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
     public ResponseEntity signIn(@RequestParam(value = "email", defaultValue = "") String email,
                                    @RequestParam(value = "password", defaultValue = "") String password) {
         try {

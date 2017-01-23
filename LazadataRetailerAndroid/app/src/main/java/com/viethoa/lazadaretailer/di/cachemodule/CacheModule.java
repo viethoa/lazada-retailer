@@ -1,5 +1,6 @@
 package com.viethoa.lazadaretailer.di.cachemodule;
 
+import com.viethoa.lazadaretailer.caches.StoreMemoryCache;
 import com.viethoa.lazadaretailer.caches.UserMemoryCache;
 import com.viethoa.lazadaretailer.network.CustomInterceptor;
 
@@ -18,6 +19,12 @@ public class CacheModule {
     @Singleton
     UserMemoryCache provideUserMemoryCache() {
         return UserMemoryCache.getInstance();
+    }
+
+    @Provides
+    @Singleton
+    StoreMemoryCache provideStoreMemoryCache() {
+        return StoreMemoryCache.getInstance();
     }
 
 }

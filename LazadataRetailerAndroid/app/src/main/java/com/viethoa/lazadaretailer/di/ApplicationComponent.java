@@ -2,8 +2,10 @@ package com.viethoa.lazadaretailer.di;
 
 import android.content.Context;
 
+import com.viethoa.lazadaretailer.caches.StoreMemoryCache;
 import com.viethoa.lazadaretailer.caches.UserMemoryCache;
-import com.viethoa.lazadaretailer.network.services.UserService.UserService;
+import com.viethoa.lazadaretailer.network.services.storeservice.StoreService;
+import com.viethoa.lazadaretailer.network.services.userservice.UserService;
 
 import javax.inject.Singleton;
 
@@ -18,8 +20,12 @@ public interface ApplicationComponent {
 
     UserMemoryCache getUserMemoryCache();
 
+    StoreMemoryCache getStoreMemoryCache();
+
 
     UserService getUserService();
+
+    StoreService getStoreService();
 
 
     Context getApplicationContext();

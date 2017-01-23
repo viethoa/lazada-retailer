@@ -9,9 +9,6 @@ import com.viethoa.lazadaretailer.screens.baseviews.BaseViewModel;
 public interface LoginViewModel {
 
     interface Listener extends BaseViewModel.Listener {
-        void onError(Throwable e);
-
-        void showLoading();
 
         void onLoginSuccess();
     }

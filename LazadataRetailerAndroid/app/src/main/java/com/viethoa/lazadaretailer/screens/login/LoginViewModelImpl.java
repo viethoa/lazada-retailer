@@ -2,7 +2,7 @@ package com.viethoa.lazadaretailer.screens.login;
 
 import com.viethoa.lazadaretailer.models.User;
 import com.viethoa.lazadaretailer.network.responses.NetworkResponse;
-import com.viethoa.lazadaretailer.network.services.UserService.UserService;
+import com.viethoa.lazadaretailer.network.services.userservice.UserService;
 import com.viethoa.lazadaretailer.screens.BriefObserver;
 import com.viethoa.lazadaretailer.screens.baseviews.BaseViewModel;
 
