@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lazadaretailer.iml" filepath="$PROJECT_DIR$/.idea/modules/lazadaretailer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lazadaretailer_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lazadaretailer_main.iml" group="lazadaretailer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lazadaretailer_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lazadaretailer_test.iml" group="lazadaretailer" />
+    </modules>
+  </component>
+</project>

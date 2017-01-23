@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
+
+// https://github.com/evant/gradle-retrolambda#using-google-play-services-causes-retrolambda-to-fail
+retrolambda {
+    jvmArgs '-noverify'
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "com.viethoa.lazadaretailer"
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res',
+                    'src/main/base_dialog_layout',
+                    'src/main/base_snackbar_layout'
+            ]
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/services/org.codehaus.groovy.transform.ASTTransformation'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        // if true, disconnect the gradle build if errors are found
+        abortOnError false
+        lintConfig = rootProject.file("lint.xml")
+    }
+    testOptions {
+        unitTests.all {
+            ignoreFailures false
+
+            testLogging {
+                events "passed", "skipped", "failed", "standardOut", "standardError"
+                showStandardStreams = true
+            }
+        }
+    }
+}
+
+ext {
+    supportLibVersion = '25.1.0'
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.android.support:appcompat-v7:${supportLibVersion}"
+    compile "com.android.support:recyclerview-v7:${supportLibVersion}"
+    compile "com.android.support:support-annotations:${supportLibVersion}"
+    compile "com.android.support:cardview-v7:${supportLibVersion}"
+
+    // Base
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //compile 'com.android.support:multidex:1.0.1'
+
+    //===Retrofit===//
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+
+    // Dagger
+    compile 'com.google.dagger:dagger:2.0.2'
+    apt "com.google.dagger:dagger-compiler:2.0.2"
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    // Rx
+    compile 'io.reactivex:rxjava:1.1.9'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.1@aar'
+
+    //===Hawk===//
+    compile('com.orhanobut:hawk:2.0.0-Alpha') {
+        transitive = true
+    }
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:2.0.57-beta'
+    testCompile 'org.robolectric:robolectric:3.1'
+    testCompile 'org.robolectric:shadows-multidex:3.0'
+    testCompile 'org.hamcrest:hamcrest-core:1.3'
+    testApt 'com.google.dagger:dagger-compiler:2.0.2'
+}

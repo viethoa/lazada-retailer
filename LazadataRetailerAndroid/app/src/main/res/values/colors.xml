@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#006AA2</color>
+    <color name="colorPrimaryDark">#014468</color>
+    <color name="colorPrimaryDark90">#E6014468</color>
+    <color name="colorPrimaryDark50">#80014468</color>
+    <color name="colorAccent">#006AA2</color>
+
+    <color name="colorSecond">#25B6F2</color>
+    <color name="colorSecondDark">#1c89b6</color>
+    <color name="colorYellow">#F8C000</color>
+    <color name="colorYellowDark">#c09500</color>
+    <color name="colorGreen">#78E14D</color>
+    <color name="colorGreenDark">#62b83f</color>
+    <color name="colorRed">#D0021B</color>
+    <color name="colorRedDark">#a70317</color>
+
+    <!-- Base -->
+    <color name="transparent">#00000000</color>
+    <color name="colorBright">#FFFFFF</color>
+    <color name="colorLine">#E8ECF3</color>
+    <color name="colorHint">#b7b7b7</color>
+    <color name="colorLight">#999999</color>
+    <color name="colorDark">#444444</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlack20">#33000000</color>
+
+    <!-- Border -->
+    <color name="colorRedBorder">#5D0101</color>
+    <color name="colorLineBorder">#717F97</color>
+    <color name="colorBrightBorder">#9D9D9D</color>
+    <color name="colorPrimaryDarkBorder">#01273C</color>
+
+    <!-- Material SnackBar -->
+    <color name="snackBarTextColor">#FFFFFF</color>
+    <color name="snackBarBackgroundColor">#3F51B5</color>
+    <color name="snackBarColorNotificationError">#FFFF4444</color>
+    <color name="snackBarColorNotificationWaring">#FFF5A623</color>
+    <color name="snackBarColorNotificationSuccess">#FF8BC34A</color>
+
+    <!-- Pull to refresh -->
+    <color name="swipe_color_1">#897a52</color>
+    <color name="swipe_color_2">#a39161</color>
+    <color name="swipe_color_3">#b6a26c</color>
+    <color name="swipe_color_4">#ccb67a</color>
+
+</resources>

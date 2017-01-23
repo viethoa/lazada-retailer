@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/colorBright"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/content_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/space_10_dp"
+        android:paddingRight="@dimen/space_10_dp"
+        android:paddingTop="@dimen/space_40_dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_40_dp"
+            android:src="@mipmap/icon_lazada" />
+
+        <RelativeLayout
+            android:id="@+id/form_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation_10_dp">
+
+            <EditText
+                android:id="@+id/et_email"
+                style="@style/text_black_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:hint="@string/login_hint_email"
+                android:inputType="number"
+                android:maxLines="1" />
+
+            <com.viethoa.lazadaretailer.screens.widget.SecureEditTextBox
+                android:id="@+id/et_password"
+                style="@style/text_black_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_email"
+                android:drawablePadding="@dimen/space_16_dp"
+                android:hint="@string/login_hint_password"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+
+            <Button
+                android:id="@+id/btn_log_in"
+                style="@style/text_bright_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_password"
+                android:background="@drawable/button_second"
+                android:enabled="false"
+                android:text="@string/login_login" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" />
+    </LinearLayout>
+</ScrollView>
