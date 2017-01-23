@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.viethoa.lazadaretailer.R;
+import com.viethoa.lazadaretailer.caches.UserMemoryCache;
 import com.viethoa.lazadaretailer.di.ApplicationComponent;
 import com.viethoa.lazadaretailer.di.BaseComponent;
 import com.viethoa.lazadaretailer.di.loginmodule.DaggerLoginComponent;
@@ -21,10 +22,12 @@ import butterknife.OnTextChanged;
 
 public class LoginActivity extends BaseSnackBarActivity implements LoginViewModel.Listener {
 
-    private LoginComponent loginComponent;
+    private LoginRouter loginRouter = new LoginRouter();
 
     @Inject
     LoginViewModel loginViewModel;
+    @Inject
+    UserMemoryCache userMemoryCache;
 
     @Bind(R.id.et_email)
     EditText etEmail;
@@ -35,6 +38,13 @@ public class LoginActivity extends BaseSnackBarActivity implements LoginViewMode
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // Remember logged in
+        if (userMemoryCache.get() != null) {
+            loginRouter.navigateToHomeActivity(this);
+            return;
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -47,7 +57,7 @@ public class LoginActivity extends BaseSnackBarActivity implements LoginViewMode
 
     @Override
     protected void injectModule(ApplicationComponent appComponent) {
-        loginComponent = DaggerLoginComponent.builder()
+        LoginComponent loginComponent = DaggerLoginComponent.builder()
                 .applicationComponent(appComponent)
                 .loginModule(new LoginModule())
                 .build();
@@ -92,5 +102,6 @@ public class LoginActivity extends BaseSnackBarActivity implements LoginViewMode
     @Override
     public void onLoginSuccess() {
         dismissLoadingDialog();
+        loginRouter.navigateToHomeActivity(this);
     }
 }
