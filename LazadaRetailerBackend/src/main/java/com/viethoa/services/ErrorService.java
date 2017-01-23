@@ -11,11 +11,11 @@ public class ErrorService {
     private static final String UNKNOWN_ERROR = "unknown error";
     private static final int CODE_400 = 400;
 
-    public ErrorModel tokenExpired() {
+    public synchronized ErrorModel tokenExpired() {
         return new ErrorModel(TOKEN_EXPIRED_MESSAGE, CODE_400);
     }
 
-    public ErrorModel badRequest(Exception ex) {
+    public synchronized ErrorModel badRequest(Exception ex) {
         if (ex == null) {
             return new ErrorModel(UNKNOWN_ERROR, CODE_400);
         } else {

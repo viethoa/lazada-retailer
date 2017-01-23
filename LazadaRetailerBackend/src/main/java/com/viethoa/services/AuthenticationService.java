@@ -23,7 +23,7 @@ public class AuthenticationService {
 
     public static final String ISSUER = "http://lazada.vn";
 
-    public String createJsonWebToken(String userID, String username, String password, long ttlMillis) throws Exception {
+    public synchronized String createJsonWebToken(String userID, String username, String password, long ttlMillis) throws Exception {
 
         //The JWT signature algorithm we will be using to sign the token
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
@@ -53,37 +53,41 @@ public class AuthenticationService {
         return builder.compact();
     }
 
-    public Authentication parseJWT(String jwt) throws Exception {
+    public synchronized Authentication parseJWT(String jwt) {
+        try {
+            //This line will throw an exception if it is not a signed JWS (as expected)
+            Claims claims = Jwts.parser()
+                    .setSigningKey(DatatypeConverter.parseBase64Binary(getSignatureKey()))
+                    .parseClaimsJws(jwt).getBody();
 
-        //This line will throw an exception if it is not a signed JWS (as expected)
-        Claims claims = Jwts.parser()
-                .setSigningKey(DatatypeConverter.parseBase64Binary(getSignatureKey()))
-                .parseClaimsJws(jwt).getBody();
+            User user = new User();
+            String userId = claims.getId();
+            if (!StringUtils.isEmpty(userId)) {
+                user.setId(Long.parseLong(userId));
+            }
+            String subject = claims.getSubject();
+            if (!StringUtils.isEmpty(subject)) {
+                String[] subjects = subject.split("/");
+                user.setEmail(subjects[0]);
+                user.setPassword(subjects[1]);
+            }
 
-        User user = new User();
-        String userId = claims.getId();
-        if (!StringUtils.isEmpty(userId)) {
-            user.setId(Long.parseLong(userId));
+            return new Authentication(
+                    claims.getIssuer(),
+                    claims.getExpiration(),
+                    user
+            );
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
         }
-        String subject = claims.getSubject();
-        if (!StringUtils.isEmpty(subject)) {
-            String[] subjects = subject.split("/");
-            user.setEmail(subjects[0]);
-            user.setPassword(subjects[1]);
-        }
-
-        return new Authentication(
-                claims.getIssuer(),
-                claims.getExpiration(),
-                user
-        );
     }
 
-    private String getSignatureKey() throws Exception {
+    private synchronized String getSignatureKey() throws Exception {
         return "Rpe3YoxSGL63yHsyqwnqbNazi8DGU0SRbPduUIjy";
     }
 
-    public boolean isExpired(Authentication authentication) {
+    public synchronized boolean isExpired(Authentication authentication) {
         if (authentication == null || authentication.getExpireTime() == null) {
             return false;
         }

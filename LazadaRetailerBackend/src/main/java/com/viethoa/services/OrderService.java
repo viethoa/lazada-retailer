@@ -10,7 +10,7 @@ import org.springframework.util.StringUtils;
  */
 public class OrderService {
 
-    public Order add(long storeID, String orderNo) throws Exception {
+    public synchronized Order add(long storeID, String orderNo) throws Exception {
         if (StringUtils.isEmpty(orderNo)) {
             throw new Exception("Missing order no");
         }

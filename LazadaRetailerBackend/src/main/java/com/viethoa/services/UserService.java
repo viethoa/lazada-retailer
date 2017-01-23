@@ -11,7 +11,7 @@ public class UserService {
 
     private static final long EXPIRE_TIME_MILLISECOND = 24 * 60 * 60 * 1000;
 
-    public User register(String email, String password, String name, String phone, String address) throws Exception {
+    public synchronized User register(String email, String password, String name, String phone, String address) throws Exception {
         if (StringUtils.isEmpty(email)) {
             throw new Exception("Missing email");
         }
@@ -46,7 +46,7 @@ public class UserService {
         return user;
     }
 
-    public User signIn(String email, String password) throws Exception {
+    public synchronized User signIn(String email, String password) throws Exception {
         if (StringUtils.isEmpty(email)) {
             throw new Exception("Missing email");
         }
