@@ -4,8 +4,10 @@ import android.content.Context;
 
 import com.viethoa.lazadaretailer.caches.StoreMemoryCache;
 import com.viethoa.lazadaretailer.caches.UserMemoryCache;
+import com.viethoa.lazadaretailer.network.services.orderservice.OrderService;
 import com.viethoa.lazadaretailer.network.services.storeservice.StoreService;
 import com.viethoa.lazadaretailer.network.services.userservice.UserService;
+import com.viethoa.lazadaretailer.service.SyncOrderService;
 
 import javax.inject.Singleton;
 
@@ -18,6 +20,9 @@ import dagger.Component;
 @Component(modules = ApplicationModule.class)
 public interface ApplicationComponent {
 
+    void inject(SyncOrderService syncOrderService);
+
+
     UserMemoryCache getUserMemoryCache();
 
     StoreMemoryCache getStoreMemoryCache();
@@ -26,6 +31,8 @@ public interface ApplicationComponent {
     UserService getUserService();
 
     StoreService getStoreService();
+
+    OrderService getOrderService();
 
 
     Context getApplicationContext();

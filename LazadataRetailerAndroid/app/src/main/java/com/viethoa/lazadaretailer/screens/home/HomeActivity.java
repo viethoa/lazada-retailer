@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.widget.Toast;
 
@@ -67,6 +68,44 @@ public class HomeActivity extends BaseSnackBarActivity implements
     protected void onDestroy() {
         super.onDestroy();
         homeViewModel.destroy();
+    }
+
+    //----------------------------------------------------------------------------------------------
+    // BackPress events
+    //----------------------------------------------------------------------------------------------
+
+    @Override
+    public void onBackPressed() {
+        // Can not back press if scanner in processing
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_content);
+        if (currentFragment instanceof ScannerFragment) {
+            if (((ScannerFragment) currentFragment).isProcessing()) {
+                leaveScannerWhileProcessing();
+                return;
+            }
+        }
+
+        super.onBackPressed();
+    }
+
+    private void leaveScannerWhileProcessing() {
+        new DialogMessage(this,
+                R.string.scanner_leave_scan_title,
+                R.string.scanner_leave_scan_message,
+                R.string.scanner_leave_scan_cancel,
+                R.string.scanner_leave_scan_ok,
+                new DialogMessage.MessageDialogListener() {
+                    @Override
+                    public void OnNegativeClicked() {
+                        // This dialog has dismissed.
+                    }
+
+                    @Override
+                    public void OnPositiveClicked() {
+                        HomeActivity.super.onBackPressed();
+                    }
+                }
+        ).show();
     }
 
     //----------------------------------------------------------------------------------------------

@@ -8,5 +8,5 @@ import com.viethoa.lazadaretailer.models.Order;
 
 public interface ScannerAdapterListener {
 
-    void onOrderItemClicked(Order order);
+    void onOrderItemsDeleteButtonClicked(Order order);
 }

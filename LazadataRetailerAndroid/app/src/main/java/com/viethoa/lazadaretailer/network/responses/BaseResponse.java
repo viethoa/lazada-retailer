@@ -11,6 +11,10 @@ public abstract class BaseResponse implements Serializable {
     @Expose
     private Error error;
 
+    public BaseResponse(Exception exception) {
+        this.error = new Error(400, exception.getMessage());
+    }
+
     public boolean isError() {
         return error != null && !TextUtils.isEmpty(error.getMessage());
     }
@@ -22,6 +26,11 @@ public abstract class BaseResponse implements Serializable {
     private class Error {
         private int code;
         private String message;
+
+        public Error(int code, String message) {
+            this.code = code;
+            this.message = message;
+        }
 
         public int getCode() {
             return code;

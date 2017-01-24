@@ -14,7 +14,6 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by VietHoa on 24/01/2017.
@@ -60,7 +59,7 @@ public class ScannerAdapter extends BaseArrayAdapter<Order> {
             tvOrderNo.setText(order.getOrderNo());
             btnDelete.setOnClickListener(view -> {
                 if (listener != null) {
-                    listener.onOrderItemClicked(order);
+                    listener.onOrderItemsDeleteButtonClicked(order);
                 }
             });
         }

@@ -2,6 +2,9 @@ package com.viethoa.lazadaretailer.di.network;
 import com.viethoa.lazadaretailer.caches.UserMemoryCache;
 import com.viethoa.lazadaretailer.network.CustomInterceptor;
 import com.viethoa.lazadaretailer.network.RetrofitAPIService;
+import com.viethoa.lazadaretailer.network.services.orderservice.OrderAPIs;
+import com.viethoa.lazadaretailer.network.services.orderservice.OrderService;
+import com.viethoa.lazadaretailer.network.services.orderservice.OrderServiceImpl;
 import com.viethoa.lazadaretailer.network.services.storeservice.StoreAPIs;
 import com.viethoa.lazadaretailer.network.services.storeservice.StoreService;
 import com.viethoa.lazadaretailer.network.services.storeservice.StoreServiceImpl;
@@ -44,5 +47,15 @@ public class NetworkModule {
     @Provides
     StoreService provideStoreService(StoreServiceImpl storeService) {
         return storeService;
+    }
+
+    @Provides
+    OrderAPIs provideOrderAPIs(RetrofitAPIService retrofitAPIService) {
+        return retrofitAPIService.getOrderAPIs();
+    }
+
+    @Provides
+    OrderService provideOrderService(OrderServiceImpl orderService) {
+        return orderService;
     }
 }
