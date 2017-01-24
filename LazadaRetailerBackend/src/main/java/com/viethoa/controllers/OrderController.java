@@ -21,7 +21,7 @@ public class OrderController {
     private final AuthenticationService authenticationService = new AuthenticationService();
 
     @RequestMapping(value = "/order/create", method = RequestMethod.POST)
-    public ResponseEntity register(@RequestHeader(value = "token", defaultValue = "") String token,
+    public ResponseEntity create(@RequestHeader(value = "token", defaultValue = "") String token,
                                    @RequestParam(value = "store_id", defaultValue = "") long storeID,
                                    @RequestParam(value = "order_no", defaultValue = "") String orderNo) {
         try {

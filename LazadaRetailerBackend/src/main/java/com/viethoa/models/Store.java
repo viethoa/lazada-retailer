@@ -7,20 +7,19 @@ public class Store {
 
     private long id;
     private String name;
-    private long userID;
-    private long createdAt;
+    private long user_id;
+    private long created_at;
 
-    public Store(long id, String name, long userID, long createdAt) {
+    public Store(long id, String name, long user_id, long created_at) {
         this.id = id;
         this.name = name;
-        this.userID = userID;
-        this.createdAt = createdAt;
+        this.user_id = user_id;
+        this.created_at = created_at;
     }
 
-    public Store(String name, long userID) {
+    public Store(String name, long user_id) {
         this.name = name;
-        this.userID = userID;
-        this.createdAt = System.currentTimeMillis();
+        this.user_id = user_id;
     }
 
     public long getId() {
@@ -40,18 +39,18 @@ public class Store {
     }
 
     public long getUserID() {
-        return userID;
+        return user_id;
     }
 
-    public void setUserID(long userID) {
-        this.userID = userID;
+    public void setUserID(long user_id) {
+        this.user_id = user_id;
     }
 
     public long getCreatedAt() {
-        return createdAt;
+        return created_at;
     }
 
-    public void setCreatedAt(long createdAt) {
-        this.createdAt = createdAt;
+    public void setCreatedAt(long created_at) {
+        this.created_at = created_at;
     }
 }

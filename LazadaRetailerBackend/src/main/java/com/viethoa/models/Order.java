@@ -1,16 +1,26 @@
 package com.viethoa.models;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by VietHoa on 16/01/2017.
  */
+@JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE)
 public class Order {
 
+    @JsonProperty("id")
     private long id;
+    @JsonProperty("order_no")
     private String orderNo;
     @OrderState
+    @JsonProperty("state")
     private String state;
+    @JsonProperty("store_id")
     private long storeID;
+    @JsonProperty("insert_at")
     private long insertAt;
+    @JsonProperty("update_at")
     private long updateAt;
 
     public Order(String orderNo, long storeID) {
@@ -27,6 +37,14 @@ public class Order {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
     }
 
     public String getState() {
@@ -51,14 +69,6 @@ public class Order {
 
     public void setInsertAt(long insertAt) {
         this.insertAt = insertAt;
-    }
-
-    public String getOrderNo() {
-        return orderNo;
-    }
-
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
     }
 
     public long getUpdateAt() {

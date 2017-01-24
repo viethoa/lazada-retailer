@@ -92,7 +92,6 @@ public class Order implements Serializable {
     // State
     //------------------------------------------------------------------------------------------------------------------
 
-
     @Override
     public boolean equals(Object object) {
         boolean equal = false;

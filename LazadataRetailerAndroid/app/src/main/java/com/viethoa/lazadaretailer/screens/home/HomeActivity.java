@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tbruyelle.rxpermissions.RxPermissions;
@@ -25,9 +27,13 @@ import com.viethoa.lazadaretailer.screens.home.scanbarcodefragment.ScannerFragme
 import com.viethoa.lazadaretailer.screens.home.storefragment.StoreFragment;
 import com.viethoa.lazadaretailer.screens.home.storefragment.StoreFragmentListener;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import javax.inject.Inject;
+
+import butterknife.Bind;
 
 public class HomeActivity extends BaseSnackBarActivity implements
         StoreFragmentListener,
@@ -40,6 +46,11 @@ public class HomeActivity extends BaseSnackBarActivity implements
 
     @Inject
     HomeViewModel homeViewModel;
+
+    @Bind(R.id.toolbar_title)
+    TextView toolbarTitle;
+    @Bind(R.id.toolbar_icon)
+    ImageView toolbarIcon;
 
     public static Intent newInstance(Context context) {
         return new Intent(context, HomeActivity.class);
@@ -59,6 +70,7 @@ public class HomeActivity extends BaseSnackBarActivity implements
         // Store fragment always
         storeFragment = StoreFragment.newInstance();
         replaceFragment(storeFragment, R.id.fragment_content, false, false);
+        changeHomeIcon(storeFragment, null);
 
         showLoadingDialog();
         homeViewModel.getAllStores();
@@ -152,6 +164,17 @@ public class HomeActivity extends BaseSnackBarActivity implements
     // View events
     //----------------------------------------------------------------------------------------------
 
+    private void changeHomeIcon(Fragment fragment, Store store) {
+        if (fragment instanceof ScannerFragment && store != null) {
+            toolbarIcon.setImageResource(R.mipmap.ic_backpress);
+            toolbarTitle.setText(store.getName());
+        }
+        if (fragment instanceof StoreFragment) {
+            toolbarIcon.setImageResource(R.mipmap.ic_launcher);
+            toolbarTitle.setText(R.string.app_name);
+        }
+    }
+
     @Override
     public void onError(Throwable e) {
         dismissLoadingDialog();
@@ -185,5 +208,6 @@ public class HomeActivity extends BaseSnackBarActivity implements
 
         replaceFragment(scanBarcodeFragment, R.id.fragment_content, true, false);
         scanBarcodeFragment.initializeView(store);
+        changeHomeIcon(scanBarcodeFragment, store);
     }
 }

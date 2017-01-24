@@ -1,6 +1,6 @@
 package com.viethoa.lazadaretailer.loggers;
 
-import android.support.compat.BuildConfig;
+import com.viethoa.lazadaretailer.BuildConfig;
 import android.text.TextUtils;
 import android.util.Log;
 

@@ -3,6 +3,7 @@ package com.viethoa.lazadaretailer.screens.baseviews;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,6 +18,8 @@ import com.viethoa.lazadaretailer.R;
 import com.viethoa.lazadaretailer.di.ApplicationComponent;
 import com.viethoa.lazadaretailer.di.BaseComponent;
 import com.viethoa.lazadaretailer.loggers.Logger;
+
+import javax.annotation.Resource;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -128,6 +131,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setIcon(null);
     }
 
     protected void showToolbarTitle(CharSequence title) {
@@ -137,6 +141,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         actionBar.setTitle(title);
+    }
+
+    protected void showToolbarHomeIcon(@DrawableRes int icon){
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar == null) {
+            return;
+        }
+
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setIcon(icon);
     }
 
     //----------------------------------------------------------------------------------------------
