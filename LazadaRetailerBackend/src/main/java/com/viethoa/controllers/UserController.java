@@ -1,6 +1,8 @@
 package com.viethoa.controllers;
 
 import com.viethoa.models.ErrorModel;
+import com.viethoa.models.ResponseModel;
+import com.viethoa.models.User;
 import com.viethoa.services.ErrorService;
 import com.viethoa.services.UserService;
 import org.springframework.http.HttpStatus;
@@ -26,9 +28,10 @@ public class UserController {
                                    @RequestParam(value = "phone", defaultValue = "") String phone,
                                    @RequestParam(value = "address", defaultValue = "") String address) {
         try {
+            User user = userService.register(email, password, name, phone, address);
             return ResponseEntity
                     .status(HttpStatus.CREATED)
-                    .body(userService.register(email, password, name, phone, address));
+                    .body(new ResponseModel<User>(user));
         } catch (Exception ex) {
             ex.printStackTrace();
             return ResponseEntity
@@ -41,9 +44,10 @@ public class UserController {
     public ResponseEntity signIn(@RequestParam(value = "email", defaultValue = "") String email,
                                    @RequestParam(value = "password", defaultValue = "") String password) {
         try {
+            User user = userService.signIn(email, password);
             return ResponseEntity
                     .status(HttpStatus.CREATED)
-                    .body(userService.signIn(email, password));
+                    .body(new ResponseModel<User>(user));
         } catch (Exception ex) {
             ex.printStackTrace();
             return ResponseEntity

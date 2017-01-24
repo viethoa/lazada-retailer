@@ -1,6 +1,8 @@
 package com.viethoa.controllers;
 
 import com.viethoa.models.Authentication;
+import com.viethoa.models.Order;
+import com.viethoa.models.ResponseModel;
 import com.viethoa.services.AuthenticationService;
 import com.viethoa.services.ErrorService;
 import com.viethoa.services.OrderService;
@@ -36,9 +38,10 @@ public class OrderController {
                         .body(errorService.tokenExpired());
             }
 
+            Order order = orderService.add(storeID, orderNo);
             return ResponseEntity
                     .status(HttpStatus.CREATED)
-                    .body(orderService.add(storeID, orderNo));
+                    .body(new ResponseModel<Order>(order));
         } catch (Exception ex) {
             ex.printStackTrace();
             return ResponseEntity

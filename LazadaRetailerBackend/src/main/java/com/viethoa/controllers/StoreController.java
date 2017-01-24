@@ -2,12 +2,16 @@ package com.viethoa.controllers;
 
 import com.viethoa.models.Authentication;
 import com.viethoa.models.ErrorModel;
+import com.viethoa.models.ResponseModel;
+import com.viethoa.models.Store;
 import com.viethoa.services.AuthenticationService;
 import com.viethoa.services.ErrorService;
 import com.viethoa.services.StoreService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by VietHoa on 19/01/2017.
@@ -36,9 +40,10 @@ public class StoreController {
                         .body(errorService.tokenExpired());
             }
 
+            Store store = storeService.create(authentication.getUser().getId(), storeName);
             return ResponseEntity
                     .status(HttpStatus.CREATED)
-                    .body(storeService.create(authentication.getUser().getId(), storeName));
+                    .body(new ResponseModel<Store>(store));
         } catch (Exception ex) {
             ex.printStackTrace();
             return ResponseEntity
@@ -64,9 +69,10 @@ public class StoreController {
                         .body(errorService.tokenExpired());
             }
 
+            List<Store> stores = storeService.getAll(userID);
             return ResponseEntity
                     .status(HttpStatus.CREATED)
-                    .body(storeService.getAll(userID));
+                    .body(new ResponseModel<List<Store>>(stores));
         } catch (Exception ex) {
             ex.printStackTrace();
             return ResponseEntity
