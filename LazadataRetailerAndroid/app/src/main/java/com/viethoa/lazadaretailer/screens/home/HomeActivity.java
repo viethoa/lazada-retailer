@@ -12,16 +12,21 @@ import com.viethoa.lazadaretailer.di.homemodule.HomeComponent;
 import com.viethoa.lazadaretailer.di.homemodule.HomeModule;
 import com.viethoa.lazadaretailer.models.Store;
 import com.viethoa.lazadaretailer.screens.baseviews.BaseSnackBarActivity;
+import com.viethoa.lazadaretailer.screens.home.scanbarcodefragment.ScanBarcodeFragment;
 import com.viethoa.lazadaretailer.screens.home.storefragment.StoreFragment;
+import com.viethoa.lazadaretailer.screens.home.storefragment.StoreFragmentListener;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
-public class HomeActivity extends BaseSnackBarActivity implements HomeViewModel.Listener {
+public class HomeActivity extends BaseSnackBarActivity implements
+        StoreFragmentListener,
+        HomeViewModel.Listener {
 
     private HomeComponent homeComponent;
     private StoreFragment storeFragment;
+    private ScanBarcodeFragment scanBarcodeFragment;
 
     @Inject
     HomeViewModel homeViewModel;
@@ -82,5 +87,17 @@ public class HomeActivity extends BaseSnackBarActivity implements HomeViewModel.
     @Override
     public void getAllStoresSuccess(List<Store> stores) {
         storeFragment.initializeView(stores);
+    }
+
+    @Override
+    public void onStoreItemClick(Store store) {
+        if (store == null) {
+            return;
+        }
+        if (scanBarcodeFragment == null) {
+            scanBarcodeFragment = ScanBarcodeFragment.newInstance();
+        }
+        replaceFragment(scanBarcodeFragment, R.id.fragment_content, false, true);
+        scanBarcodeFragment.initializeView(store);
     }
 }

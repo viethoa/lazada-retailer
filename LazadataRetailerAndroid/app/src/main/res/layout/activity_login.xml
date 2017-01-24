@@ -2,8 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
     android:background="@color/colorBright"
+    android:fillViewport="true"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -21,6 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/space_40_dp"
+            android:layout_marginTop="@dimen/space_40_dp"
             android:src="@mipmap/icon_lazada" />
 
         <RelativeLayout
@@ -56,6 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/et_password"
+                android:layout_marginBottom="@dimen/space_20_dp"
                 android:background="@drawable/button_second"
                 android:enabled="false"
                 android:text="@string/login_login" />

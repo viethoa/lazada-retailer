@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Store fragment -->
     <string name="home_no_store_data">Bạn không có gian hàng nào</string>
+    <string name="home_store_created_time">Tạo ngày: %s</string>
 
 </resources>

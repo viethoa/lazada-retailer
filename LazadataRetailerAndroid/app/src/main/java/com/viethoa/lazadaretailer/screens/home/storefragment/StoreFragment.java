@@ -1,5 +1,6 @@
 package com.viethoa.lazadaretailer.screens.home.storefragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,7 +21,8 @@ import butterknife.Bind;
  * Created by VietHoa on 23/01/2017.
  */
 
-public class StoreFragment extends BaseSnackBarFragment {
+public class StoreFragment extends BaseSnackBarFragment implements StoreAdapterListener {
+    private StoreFragmentListener listener;
     private StoreAdapter storeAdapter;
     private List<Store> stores;
 
@@ -39,8 +41,9 @@ public class StoreFragment extends BaseSnackBarFragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        listener = (StoreFragmentListener) context;
     }
 
     @Override
@@ -64,7 +67,16 @@ public class StoreFragment extends BaseSnackBarFragment {
         // Setup store recycle view
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
-        storeAdapter = new StoreAdapter(stores);
+        storeAdapter = new StoreAdapter(getContext(), stores, this);
         recyclerView.setAdapter(storeAdapter);
+    }
+
+    @Override
+    public void onStoreItemClicked(Store store) {
+        if (store == null || listener == null) {
+            return;
+        }
+
+        listener.onStoreItemClick(store);
     }
 }
