@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/scanner_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_200_dp" />
+
+    <Button
+        android:id="@+id/btn_push_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button_second"
+        android:text="@string/scanner_btn_push_order" />
+
+    <ListView
+        android:id="@+id/ls_orders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_push_order"
+        android:layout_below="@id/scanner_content" />
+</RelativeLayout>

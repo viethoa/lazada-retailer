@@ -21,7 +21,7 @@ public class BaseArrayAdapter<T> extends BaseAdapter {
         this.mDataArray = data;
     }
 
-    public void refreshData(ArrayList<T> data) {
+    public void refreshData(List<T> data) {
         mDataArray = data;
         notifyDataSetChanged();
     }

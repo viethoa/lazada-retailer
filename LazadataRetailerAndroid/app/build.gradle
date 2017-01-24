@@ -76,7 +76,9 @@ dependencies {
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    //compile 'com.android.support:multidex:1.0.1'
+    compile('com.orhanobut:hawk:2.0.0-Alpha') {
+        transitive = true
+    }
 
     //===Retrofit===//
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
@@ -92,12 +94,14 @@ dependencies {
     // Rx
     compile 'io.reactivex:rxjava:1.1.9'
     compile 'io.reactivex:rxandroid:1.2.1'
+
+    // Permission
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.1@aar'
 
-    //===Hawk===//
-    compile('com.orhanobut:hawk:2.0.0-Alpha') {
-        transitive = true
-    }
+    // Barcode
+    compile 'me.dm7.barcodescanner:zxing:1.9'
+
+    //compile 'com.android.support:multidex:1.0.1'
 }
 
 dependencies {

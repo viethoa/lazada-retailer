@@ -45,6 +45,7 @@ public class RetrofitAPIService {
                 .build();
 
         userAPIs = retrofit.create(UserAPIs.class);
+        storeAPIs = retrofit.create(StoreAPIs.class);
     }
 
     public UserAPIs getUserAPIs() {

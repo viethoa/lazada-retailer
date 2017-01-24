@@ -43,13 +43,15 @@
     <dimen name="space_46_dp">46dp</dimen>
     <dimen name="space_48_dp">48dp</dimen>
     <dimen name="space_50_dp">50dp</dimen>
+    <dimen name="space_60_dp">60dp</dimen>
     <dimen name="space_66_dp">66dp</dimen>
     <dimen name="space_70_dp">70dp</dimen>
     <dimen name="space_76_dp">76dp</dimen>
     <dimen name="space_80_dp">80dp</dimen>
     <dimen name="space_90_dp">90dp</dimen>
     <dimen name="space_100_dp">100dp</dimen>
-    <dimen name="space_190_dp">190dp</dimen>
+    <dimen name="space_200_dp">200dp</dimen>
+    <dimen name="space_250_dp">250dp</dimen>
 
     <!-- Fonts -->
     <dimen name="font_10_sp">10sp</dimen>

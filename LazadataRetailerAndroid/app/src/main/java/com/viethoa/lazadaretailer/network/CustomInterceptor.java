@@ -20,7 +20,7 @@ import okhttp3.ResponseBody;
 public class CustomInterceptor implements Interceptor {
 
     private static final String CONTENT_TYPE = "Content-Type";
-    private static final String AUTHORIZATION_KEY = "Auth-Token";
+    private static final String AUTHORIZATION_KEY = "token";
     private static final String APP_PLATFORM = "Platform";
     private static final String APP_VERSION = "App-Version";
     private static final String DEVICE_NAME = "Device-Name";

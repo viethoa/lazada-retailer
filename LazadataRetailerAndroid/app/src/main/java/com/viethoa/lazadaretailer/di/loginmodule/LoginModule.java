@@ -15,7 +15,7 @@ public class LoginModule {
 
     @Provides
     @ActivityScope
-    public LoginViewModel provideLoginViewModel(LoginViewModelImpl viewModel) {
+    LoginViewModel provideLoginViewModel(LoginViewModelImpl viewModel) {
         return viewModel;
     }
 }

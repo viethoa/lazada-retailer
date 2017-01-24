@@ -15,7 +15,7 @@ public class HomeModule {
 
     @Provides
     @ActivityScope
-    public HomeViewModel provideHomeViewModel(HomeViewModelImpl viewModel) {
+    HomeViewModel provideHomeViewModel(HomeViewModelImpl viewModel) {
         return viewModel;
     }
 }

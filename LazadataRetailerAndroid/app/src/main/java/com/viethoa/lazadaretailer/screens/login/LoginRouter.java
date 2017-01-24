@@ -1,6 +1,7 @@
 package com.viethoa.lazadaretailer.screens.login;
 
 import android.app.Activity;
+import android.content.Intent;
 
 import com.viethoa.lazadaretailer.screens.home.HomeActivity;
 
@@ -11,6 +12,8 @@ import com.viethoa.lazadaretailer.screens.home.HomeActivity;
 public class LoginRouter {
 
     void navigateToHomeActivity(Activity activity) {
-        activity.startActivity(HomeActivity.newInstance(activity));
+        Intent intent = HomeActivity.newInstance(activity);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        activity.startActivity(intent);
     }
 }

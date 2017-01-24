@@ -12,8 +12,8 @@
     <color name="colorYellowDark">#c09500</color>
     <color name="colorGreen">#78E14D</color>
     <color name="colorGreenDark">#62b83f</color>
-    <color name="colorRed">#D0021B</color>
-    <color name="colorRedDark">#a70317</color>
+    <color name="colorRed">#E53935</color>
+    <color name="colorRedDark">#C62828</color>
 
     <!-- Base -->
     <color name="transparent">#00000000</color>

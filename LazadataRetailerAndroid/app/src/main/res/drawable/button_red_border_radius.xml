@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Press/hold background -->
+    <item android:drawable="@drawable/background_red_dark_border_radius" android:state_selected="true" />
+    <item android:drawable="@drawable/background_red_dark_border_radius" android:state_activated="true" />
+    <item android:drawable="@drawable/background_red_dark_border_radius" android:state_focused="true" />
+    <item android:drawable="@drawable/background_red_dark_border_radius" android:state_pressed="true" />
+    <!-- Default background -->
+    <item android:drawable="@drawable/background_red_border_radius" android:state_enabled="true" />
+    <!-- Default background -->
+    <item android:drawable="@drawable/background_line_radius" />
+</selector>

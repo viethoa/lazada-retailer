@@ -1,9 +1,11 @@
 package com.viethoa.lazadaretailer.screens.home;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.tbruyelle.rxpermissions.RxPermissions;
 import com.viethoa.lazadaretailer.R;
 import com.viethoa.lazadaretailer.di.ApplicationComponent;
 import com.viethoa.lazadaretailer.di.BaseComponent;
@@ -11,8 +13,10 @@ import com.viethoa.lazadaretailer.di.homemodule.DaggerHomeComponent;
 import com.viethoa.lazadaretailer.di.homemodule.HomeComponent;
 import com.viethoa.lazadaretailer.di.homemodule.HomeModule;
 import com.viethoa.lazadaretailer.models.Store;
+import com.viethoa.lazadaretailer.screens.BriefObserver;
 import com.viethoa.lazadaretailer.screens.baseviews.BaseSnackBarActivity;
-import com.viethoa.lazadaretailer.screens.home.scanbarcodefragment.ScanBarcodeFragment;
+import com.viethoa.lazadaretailer.screens.home.scanbarcodefragment.ScannerFragment;
+import com.viethoa.lazadaretailer.screens.home.scanbarcodefragment.ScannerFragmentListener;
 import com.viethoa.lazadaretailer.screens.home.storefragment.StoreFragment;
 import com.viethoa.lazadaretailer.screens.home.storefragment.StoreFragmentListener;
 
@@ -22,11 +26,12 @@ import javax.inject.Inject;
 
 public class HomeActivity extends BaseSnackBarActivity implements
         StoreFragmentListener,
+        ScannerFragmentListener,
         HomeViewModel.Listener {
 
     private HomeComponent homeComponent;
     private StoreFragment storeFragment;
-    private ScanBarcodeFragment scanBarcodeFragment;
+    private ScannerFragment scanBarcodeFragment;
 
     @Inject
     HomeViewModel homeViewModel;
@@ -40,6 +45,9 @@ public class HomeActivity extends BaseSnackBarActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        // Ask camera permission
+        askCameraPermission();
+
         // Init
         homeViewModel.initialize(this);
 
@@ -48,6 +56,7 @@ public class HomeActivity extends BaseSnackBarActivity implements
         replaceFragment(storeFragment, R.id.fragment_content, false, false);
 
         showLoadingDialog();
+        homeViewModel.getAllStores();
     }
 
     @Override
@@ -74,11 +83,35 @@ public class HomeActivity extends BaseSnackBarActivity implements
     }
 
     //----------------------------------------------------------------------------------------------
+    // Permission
+    //----------------------------------------------------------------------------------------------
+
+    private void askCameraPermission() {
+        RxPermissions rxPermissions = new RxPermissions(this);
+        manageSubscription(rxPermissions.request(
+                Manifest.permission.CAMERA)
+                .compose(bindToMainThread())
+                .subscribe(new BriefObserver<Boolean>() {
+                    @Override
+                    public void onNext(Boolean permissionGranted) {
+                        askInternetPermissionCallback(permissionGranted);
+                    }
+                }));
+    }
+
+    private void askInternetPermissionCallback(Boolean permissionGranted) {
+        if (!permissionGranted) {
+            finish();
+        }
+    }
+
+    //----------------------------------------------------------------------------------------------
     // View events
     //----------------------------------------------------------------------------------------------
 
     @Override
     public void onError(Throwable e) {
+        dismissLoadingDialog();
         if (e != null) {
             showTopErrorMessage(e.getMessage());
         }
@@ -86,6 +119,15 @@ public class HomeActivity extends BaseSnackBarActivity implements
 
     @Override
     public void getAllStoresSuccess(List<Store> stores) {
+        dismissLoadingDialog();
+
+        // Auto select if there is just 1 store
+        if (stores != null && stores.size() == 1) {
+            onStoreItemClick(stores.get(0));
+            return;
+        }
+
+        // Need user select store
         storeFragment.initializeView(stores);
     }
 
@@ -95,9 +137,10 @@ public class HomeActivity extends BaseSnackBarActivity implements
             return;
         }
         if (scanBarcodeFragment == null) {
-            scanBarcodeFragment = ScanBarcodeFragment.newInstance();
+            scanBarcodeFragment = ScannerFragment.newInstance();
         }
-        replaceFragment(scanBarcodeFragment, R.id.fragment_content, false, true);
+
+        replaceFragment(scanBarcodeFragment, R.id.fragment_content, true, true);
         scanBarcodeFragment.initializeView(store);
     }
 }

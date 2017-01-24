@@ -2,7 +2,16 @@
 <resources>
 
     <!-- Store fragment -->
-    <string name="home_no_store_data">Bạn không có gian hàng nào</string>
-    <string name="home_store_created_time">Tạo ngày: %s</string>
+    <string name="store_text_no_data">Bạn không có gian hàng nào</string>
+    <string name="store_text_name">Gian hàng: %s</string>
+    <string name="store_text_created_time">Tạo ngày: %s</string>
 
+    <!-- Scanner fragment -->
+    <string name="scanner_btn_delete">Xóa</string>
+    <string name="scanner_btn_push_order">Lưu vào Server</string>
+    <string name="scanner_error_order_already_exist">Đơn hàng này đã được quest code rồi</string>
+    <string name="scanner_error_store_null">Giang hàng đã bị xóa, xin hãy chọn gian hàng khác !</string>
+    <string name="scanner_error_delete_order_null">Đơn hàng lỗi không thể xóa, hãy tắt ứng dụng đi mở lại !</string>
+    <string name="scanner_error_delete_order_not_exist">Đơn hàng lỗi không thể xóa, hãy tắt ứng dụng đi mở lại !</string>
+    <string name="scanner_error_barcode_null">Barcode không đúng, xin hãy quest lại !</string>
 </resources>

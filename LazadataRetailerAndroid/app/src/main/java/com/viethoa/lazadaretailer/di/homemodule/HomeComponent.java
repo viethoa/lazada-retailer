@@ -4,7 +4,7 @@ import com.viethoa.lazadaretailer.di.ActivityScope;
 import com.viethoa.lazadaretailer.di.ApplicationComponent;
 import com.viethoa.lazadaretailer.di.BaseComponent;
 import com.viethoa.lazadaretailer.screens.home.HomeActivity;
-import com.viethoa.lazadaretailer.screens.home.scanbarcodefragment.ScanBarcodeFragment;
+import com.viethoa.lazadaretailer.screens.home.scanbarcodefragment.ScannerFragment;
 import com.viethoa.lazadaretailer.screens.home.storefragment.StoreFragment;
 
 import dagger.Component;
@@ -23,5 +23,5 @@ public interface HomeComponent extends BaseComponent {
 
     void inject(StoreFragment storeFragment);
 
-    void inject(ScanBarcodeFragment scanBarcodeFragment);
+    void inject(ScannerFragment scanBarcodeFragment);
 }

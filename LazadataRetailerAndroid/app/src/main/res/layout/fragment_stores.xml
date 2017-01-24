@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/space_04_dp">
 
     <TextView
         android:id="@+id/txt_no_data"
@@ -11,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="@dimen/space_50_dp"
-        android:text="@string/home_no_store_data" />
+        android:text="@string/store_text_no_data" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_recycler_view"

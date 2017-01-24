@@ -1,10 +1,12 @@
 package com.viethoa.lazadaretailer.screens.login;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.tbruyelle.rxpermissions.RxPermissions;
 import com.viethoa.lazadaretailer.R;
 import com.viethoa.lazadaretailer.caches.UserMemoryCache;
 import com.viethoa.lazadaretailer.di.ApplicationComponent;
@@ -12,6 +14,7 @@ import com.viethoa.lazadaretailer.di.BaseComponent;
 import com.viethoa.lazadaretailer.di.loginmodule.DaggerLoginComponent;
 import com.viethoa.lazadaretailer.di.loginmodule.LoginComponent;
 import com.viethoa.lazadaretailer.di.loginmodule.LoginModule;
+import com.viethoa.lazadaretailer.screens.BriefObserver;
 import com.viethoa.lazadaretailer.screens.baseviews.BaseSnackBarActivity;
 
 import javax.inject.Inject;
@@ -39,6 +42,9 @@ public class LoginActivity extends BaseSnackBarActivity implements LoginViewMode
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Ask internet permission
+        askInternetPermission();
 
         // Remember logged in
         if (userMemoryCache.get() != null) {
@@ -70,6 +76,29 @@ public class LoginActivity extends BaseSnackBarActivity implements LoginViewMode
                 .loginModule(new LoginModule())
                 .build();
         loginComponent.inject(this);
+    }
+
+    //----------------------------------------------------------------------------------------------
+    // Permission
+    //----------------------------------------------------------------------------------------------
+
+    private void askInternetPermission() {
+        RxPermissions rxPermissions = new RxPermissions(this);
+        manageSubscription(rxPermissions.request(
+                Manifest.permission.INTERNET)
+                .compose(bindToMainThread())
+                .subscribe(new BriefObserver<Boolean>() {
+                    @Override
+                    public void onNext(Boolean permissionGranted) {
+                        askInternetPermissionCallback(permissionGranted);
+                    }
+                }));
+    }
+
+    private void askInternetPermissionCallback(Boolean permissionGranted) {
+        if (!permissionGranted) {
+            finish();
+        }
     }
 
     //----------------------------------------------------------------------------------------------

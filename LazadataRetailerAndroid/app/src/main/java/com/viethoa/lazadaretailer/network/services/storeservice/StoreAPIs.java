@@ -8,6 +8,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 /**
  * Created by VietHoa on 23/01/2017.
@@ -17,6 +18,6 @@ public interface StoreAPIs {
 
     @GET("/store/get_all_stores")
     Call<NetworkResponse<List<Store>>> getAllStores(
-            @Field("user_id") long userID
+            @Query("user_id") long userID
     );
 }

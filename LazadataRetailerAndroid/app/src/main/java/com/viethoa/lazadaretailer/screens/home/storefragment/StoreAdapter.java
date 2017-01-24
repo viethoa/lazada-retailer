@@ -75,9 +75,10 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
                 return;
             }
 
-            txtStoreName.setText(store.getName());
+            txtStoreName.setText(String.format(
+                    context.getString(R.string.store_text_name), store.getName()));
             txtCreatedTime.setText(String.format(
-                    context.getString(R.string.home_store_created_time), FormatUtils.date(store.getCreatedAt())));
+                    context.getString(R.string.store_text_created_time), FormatUtils.date(store.getCreatedAt())));
 
             cardView.setOnClickListener(view -> {
                if (listener != null) {

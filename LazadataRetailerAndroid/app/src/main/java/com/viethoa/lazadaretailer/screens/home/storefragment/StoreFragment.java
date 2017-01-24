@@ -52,16 +52,21 @@ public class StoreFragment extends BaseSnackBarFragment implements StoreAdapterL
         initializeView(stores);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        initializeView(stores);
+    }
+
     public void initializeView(List<Store> stores) {
-        if (recyclerView == null || stores == null) {
+        this.stores = stores;
+        if (recyclerView == null) {
             return;
         }
 
-        this.stores = stores;
-
         // No data text
         if (stores.size() > 0) {
-            tvNoStoreData.setVisibility(View.VISIBLE);
+            tvNoStoreData.setVisibility(View.GONE);
         }
 
         // Setup store recycle view

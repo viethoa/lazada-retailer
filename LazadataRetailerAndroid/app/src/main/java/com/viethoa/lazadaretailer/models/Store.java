@@ -1,5 +1,7 @@
 package com.viethoa.lazadaretailer.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -8,9 +10,13 @@ import java.io.Serializable;
 
 public class Store implements Serializable {
 
+    @SerializedName("id")
     private long id;
+    @SerializedName("name")
     private String name;
+    @SerializedName("user_id")
     private long userID;
+    @SerializedName("created_at")
     private long createdAt;
 
     public long getId() {
