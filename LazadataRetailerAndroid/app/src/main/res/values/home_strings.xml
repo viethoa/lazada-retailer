@@ -7,6 +7,7 @@
     <string name="store_text_created_time">Tạo ngày: %s</string>
 
     <!-- Scanner fragment -->
+    <string name="scanner_order_title">Danh Sách Order</string>
     <string name="scanner_btn_delete">Xóa</string>
     <string name="scanner_btn_push_order">Lưu vào Server</string>
     <string name="scanner_error_order_already_exist">Đơn hàng này đã được quest code rồi</string>

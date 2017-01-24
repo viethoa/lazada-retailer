@@ -59,12 +59,6 @@ public class ScannerFragment extends BaseSnackBarFragment implements
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        scannerView = new ZXingScannerView(getContext());
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
         scannerView.setResultHandler(this);
@@ -85,6 +79,7 @@ public class ScannerFragment extends BaseSnackBarFragment implements
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Init scanner
+        scannerView = new ZXingScannerView(getContext());
         contentFrame.removeAllViews();
         contentFrame.addView(scannerView);
 
@@ -92,6 +87,8 @@ public class ScannerFragment extends BaseSnackBarFragment implements
         orders = new ArrayList<>();
         scannerAdapter = new ScannerAdapter(getContext(), orders, this);
         listViewOrder.setAdapter(scannerAdapter);
+
+        initializeView(store);
     }
 
     public void initializeView(Store store) {

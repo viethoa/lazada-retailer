@@ -65,7 +65,7 @@ public class StoreFragment extends BaseSnackBarFragment implements StoreAdapterL
         }
 
         // No data text
-        if (stores.size() > 0) {
+        if (stores != null && stores.size() > 0) {
             tvNoStoreData.setVisibility(View.GONE);
         }
 

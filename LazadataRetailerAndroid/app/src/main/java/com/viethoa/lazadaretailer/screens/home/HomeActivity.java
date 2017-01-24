@@ -3,7 +3,11 @@ package com.viethoa.lazadaretailer.screens.home;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.widget.Toast;
 
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.viethoa.lazadaretailer.R;
@@ -140,7 +144,7 @@ public class HomeActivity extends BaseSnackBarActivity implements
             scanBarcodeFragment = ScannerFragment.newInstance();
         }
 
-        replaceFragment(scanBarcodeFragment, R.id.fragment_content, true, true);
+        replaceFragment(scanBarcodeFragment, R.id.fragment_content, true, false);
         scanBarcodeFragment.initializeView(store);
     }
 }
