@@ -22,7 +22,7 @@ public class OrderService {
 
         OrderDao orderDao = new OrderDao();
         if (orderDao.isExist(storeID, orderNo)) {
-            throw new Exception("This order has created before");
+            throw new Exception("Mã Code này đã được quét rồi");
         }
 
         Order order = new Order(orderNo, storeID);
@@ -32,5 +32,24 @@ public class OrderService {
         }
 
         return order;
+    }
+
+    public synchronized void delete(long storeID, String orderNo) throws Exception {
+        if (StringUtils.isEmpty(orderNo)) {
+            throw new Exception("Mã code này không tồn tại");
+        }
+
+        StoreDao storeDao = new StoreDao();
+        if (!storeDao.isExist(storeID)) {
+            throw new Exception("Gian hàng của bạn đã bị xóa trên hệ thống");
+        }
+
+        OrderDao orderDao = new OrderDao();
+        if (!orderDao.isExist(storeID, orderNo)) {
+            throw new Exception("Mã code này không tồn tại");
+        }
+
+        Order order = new Order(orderNo, storeID);
+        orderDao.delete(order);
     }
 }

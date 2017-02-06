@@ -1,13 +1,11 @@
 package com.viethoa.database;
 
 import com.viethoa.models.Order;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
-import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -49,6 +47,20 @@ public class OrderDao {
         params.put(INSERT_AT, order.getInsertAt());
         params.put(UPDATE_AT, order.getUpdateAt());
         return insertOrder.executeAndReturnKey(params);
+    }
+
+    public void delete(Order order) {
+        if (order == null) {
+            return;
+        }
+
+        try {
+            String deleteStatement = String.format("DELETE FROM %s WHERE %s = '%s' AND %s = '%s'",
+                    TABLE_NAME, ORDER_NO, order.getOrderNo(), STORE_ID, order.getStoreID());
+            DatabaseManager.getJdbcTemplate().update(deleteStatement);
+        } catch (RuntimeException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public boolean isExist(long storeID, String orderNo) {

@@ -1,5 +1,6 @@
 package com.viethoa.database;
 
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
@@ -18,6 +19,7 @@ public class DatabaseManager {
     private static final String DB_PASSWORD = "";
 
     private static DataSource dataSource;
+    private static JdbcTemplate jdbcTemplate;
 
     public static DataSource getDataSource() {
         if (dataSource != null) {
@@ -31,6 +33,14 @@ public class DatabaseManager {
         managerDataSource.setPassword(DB_PASSWORD);
         dataSource = managerDataSource;
         return dataSource;
+    }
+
+    public static JdbcTemplate getJdbcTemplate() {
+        if (jdbcTemplate != null) {
+            return jdbcTemplate;
+        }
+
+        return new JdbcTemplate(getDataSource());
     }
 
     public void createTables() throws SQLException {

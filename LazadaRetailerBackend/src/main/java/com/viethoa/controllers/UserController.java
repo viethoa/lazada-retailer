@@ -7,10 +7,7 @@ import com.viethoa.services.ErrorService;
 import com.viethoa.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by VietHoa on 16/01/2017.
@@ -40,6 +37,7 @@ public class UserController {
         }
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
     public ResponseEntity signIn(@RequestParam(value = "email", defaultValue = "") String email,
                                    @RequestParam(value = "password", defaultValue = "") String password) {

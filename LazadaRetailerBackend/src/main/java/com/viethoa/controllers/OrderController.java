@@ -49,4 +49,35 @@ public class OrderController {
                     .body(errorService.badRequest(ex));
         }
     }
+
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    @RequestMapping(value = "/order/delete", method = RequestMethod.POST)
+    public ResponseEntity delete(@RequestHeader(value = "token", defaultValue = "") String token,
+                                 @RequestParam(value = "store_id", defaultValue = "") long storeID,
+                                 @RequestParam(value = "order_no", defaultValue = "") String orderNo) {
+        try {
+            // Token checking
+            Authentication authentication = authenticationService.parseJWT(token);
+            if (authentication == null || authentication.getUser() == null) {
+                return ResponseEntity
+                        .status(HttpStatus.BAD_REQUEST)
+                        .body(errorService.tokenExpired());
+            }
+            if (authenticationService.isExpired(authentication)) {
+                return ResponseEntity
+                        .status(HttpStatus.BAD_REQUEST)
+                        .body(errorService.tokenExpired());
+            }
+
+            orderService.delete(storeID, orderNo);
+            return ResponseEntity
+                    .status(HttpStatus.NO_CONTENT)
+                    .body(null);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(errorService.badRequest(ex));
+        }
+    }
 }
