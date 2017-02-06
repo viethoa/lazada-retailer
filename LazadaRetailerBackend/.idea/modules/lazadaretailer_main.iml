@@ -43,14 +43,5 @@
     <orderEntry type="library" name="Gradle: org.slf4j:log4j-over-slf4j:1.7.22" level="project" />
     <orderEntry type="library" name="Gradle: ch.qos.logback:logback-core:1.1.8" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.22" level="project" />
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../libs/postgresql-9.4.1212.jre6.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
   </component>
 </module>

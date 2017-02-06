@@ -17,9 +17,19 @@ repositories {
     mavenCentral()
 }
 
+jar {
+    baseName = 'larada-retailer'
+    version =  '0.1.0'
+}
+
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework:spring-jdbc")
     compile("com.h2database:h2")
     compile("io.jsonwebtoken:jjwt:0.7.0")
+}
+
+task wrapper(type: Wrapper) {
+
+    gradleVersion = '2.13'
 }
