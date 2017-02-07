@@ -1,9 +1,11 @@
 buildscript {
     repositories {
+        mavenLocal()
         mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
+        classpath 'postgresql:postgresql:9.1-901-1.jdbc4'
     }
 }
 
@@ -27,9 +29,9 @@ dependencies {
     compile("org.springframework:spring-jdbc")
     compile("com.h2database:h2")
     compile("io.jsonwebtoken:jjwt:0.7.0")
+    compile 'postgresql:postgresql:9.1-901-1.jdbc4'
 }
 
 task wrapper(type: Wrapper) {
-
     gradleVersion = '2.13'
 }
