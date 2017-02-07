@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
 Main-Class: com.viethoa.Application
-Class-Path: libs/postgresql-9.4.1212.jre6.jar
+

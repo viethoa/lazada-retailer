@@ -13,9 +13,9 @@ import java.sql.SQLException;
  */
 public class DatabaseManager {
 
-    private static final String DB_CONNECTION = "jdbc:postgresql://localhost:5432/VietHoa";
+    private static final String DB_CONNECTION = "jdbc:postgresql://localhost:5432/lazada";  // database name
     private static final String driverClassName = "org.postgresql.Driver";
-    private static final String DB_USERNAME = "VietHoa";
+    private static final String DB_USERNAME = "postgres";                                   // user
     private static final String DB_PASSWORD = "";
 
     private static DataSource dataSource;
@@ -40,7 +40,8 @@ public class DatabaseManager {
             return jdbcTemplate;
         }
 
-        return new JdbcTemplate(getDataSource());
+        jdbcTemplate = new JdbcTemplate(getDataSource());
+        return jdbcTemplate;
     }
 
     public void createTables() throws SQLException {

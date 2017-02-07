@@ -1,13 +1,11 @@
 <component name="ArtifactManager">
   <artifact type="jar" build-on-make="true" name="lazadaretailer:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/lazadaretailer_jar</output-path>
-    <root id="archive" name="lazadaretailer_jar.jar">
-      <element id="archive" name="lazadaretailer.jar">
-        <element id="directory" name="META-INF">
-          <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
-        </element>
-        <element id="extracted-dir" path="$PROJECT_DIR$/libs/postgresql-9.4.1212.jre6.jar" path-in-jar="/" />
+    <root id="archive" name="lazadaretailer.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
       </element>
+      <element id="library" level="project" name="postgresql-9.4.1212.jre6" />
     </root>
   </artifact>
 </component>
