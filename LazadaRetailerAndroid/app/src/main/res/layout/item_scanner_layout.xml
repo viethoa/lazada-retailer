@@ -10,16 +10,51 @@
         style="@style/text_dark_large"
         android:layout_width="@dimen/empty_space"
         android:layout_height="wrap_content"
+        android:layout_weight="1.2"
+        android:padding="@dimen/space_14_dp"
+        android:text="234123412" />
+
+    <View
+        android:layout_width="@dimen/line_px"
+        android:layout_height="match_parent"
+        android:background="@color/colorHint" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        style="@style/text_dark_large"
+        android:layout_width="@dimen/empty_space"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:padding="@dimen/space_14_dp"
-        android:text="23412341234124" />
+        android:text="15:06:32" />
 
-    <Button
+    <View
+        android:layout_width="@dimen/line_px"
+        android:layout_height="match_parent"
+        android:background="@color/colorHint" />
+
+    <TextView
+        android:id="@+id/tv_gam"
+        style="@style/text_dark_large"
+        android:layout_width="@dimen/empty_space"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:padding="@dimen/space_14_dp"
+        android:text="11,000" />
+
+    <View
+        android:layout_width="@dimen/line_px"
+        android:layout_height="match_parent"
+        android:background="@color/colorHint" />
+
+    <ImageView
         android:id="@+id/btn_delete"
-        android:layout_width="@dimen/space_66_dp"
-        android:layout_height="@dimen/space_32_dp"
-        android:layout_marginEnd="@dimen/space_14_dp"
-        android:layout_marginRight="@dimen/space_14_dp"
-        android:background="@drawable/button_red_border_radius"
-        android:text="@string/scanner_btn_delete" />
+        android:layout_width="@dimen/space_60_dp"
+        android:layout_height="wrap_content"
+        android:paddingEnd="@dimen/space_16_dp"
+        android:paddingLeft="@dimen/space_16_dp"
+        android:paddingRight="@dimen/space_16_dp"
+        android:paddingStart="@dimen/space_16_dp"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_delete" />
 </LinearLayout>

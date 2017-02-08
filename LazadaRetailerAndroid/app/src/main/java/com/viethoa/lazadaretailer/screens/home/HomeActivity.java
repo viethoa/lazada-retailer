@@ -40,9 +40,9 @@ public class HomeActivity extends BaseSnackBarActivity implements
         ScannerFragmentListener,
         HomeViewModel.Listener {
 
+    private HomeRouter homeRouter = new HomeRouter();
     private HomeComponent homeComponent;
     private StoreFragment storeFragment;
-    private ScannerFragment scanBarcodeFragment;
 
     @Inject
     HomeViewModel homeViewModel;
@@ -61,16 +61,19 @@ public class HomeActivity extends BaseSnackBarActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        // Init toolbar
+        toolbarIcon.setImageResource(R.mipmap.ic_launcher);
+        toolbarTitle.setText(R.string.app_name);
+
+        // Init view model
+        homeViewModel.initialize(this);
+
         // Ask camera permission
         askCameraPermission();
-
-        // Init
-        homeViewModel.initialize(this);
 
         // Store fragment always
         storeFragment = StoreFragment.newInstance();
         replaceFragment(storeFragment, R.id.fragment_content, false, false);
-        changeHomeIcon(storeFragment, null);
 
         showLoadingDialog();
         homeViewModel.getAllStores();
@@ -164,17 +167,6 @@ public class HomeActivity extends BaseSnackBarActivity implements
     // View events
     //----------------------------------------------------------------------------------------------
 
-    private void changeHomeIcon(Fragment fragment, Store store) {
-        if (fragment instanceof ScannerFragment && store != null) {
-            toolbarIcon.setImageResource(R.mipmap.ic_backpress);
-            toolbarTitle.setText(store.getName());
-        }
-        if (fragment instanceof StoreFragment) {
-            toolbarIcon.setImageResource(R.mipmap.ic_launcher);
-            toolbarTitle.setText(R.string.app_name);
-        }
-    }
-
     @Override
     public void onError(Throwable e) {
         dismissLoadingDialog();
@@ -186,28 +178,13 @@ public class HomeActivity extends BaseSnackBarActivity implements
     @Override
     public void getAllStoresSuccess(List<Store> stores) {
         dismissLoadingDialog();
-
-        // Auto select if there is just 1 store
-        if (stores != null && stores.size() == 1) {
-            onStoreItemClick(stores.get(0));
-            return;
-        }
-
-        // Need user select store
         storeFragment.initializeView(stores);
     }
 
     @Override
     public void onStoreItemClick(Store store) {
-        if (store == null) {
-            return;
+        if (store != null) {
+            homeRouter.navigateToStoreActivity(this, store);
         }
-        if (scanBarcodeFragment == null) {
-            scanBarcodeFragment = ScannerFragment.newInstance();
-        }
-
-        replaceFragment(scanBarcodeFragment, R.id.fragment_content, true, false);
-        scanBarcodeFragment.initializeView(store);
-        changeHomeIcon(scanBarcodeFragment, store);
     }
 }

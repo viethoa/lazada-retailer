@@ -8,11 +8,14 @@
 
     <color name="colorSecond">#25B6F2</color>
     <color name="colorSecondDark">#1c89b6</color>
+    <color name="colorThird">#54dac4</color>
+    <color name="colorThirdDark">#2aa8a3</color>
+    <color name="colorFour">#71c285</color>
     <color name="colorYellow">#F8C000</color>
     <color name="colorYellowDark">#c09500</color>
     <color name="colorGreen">#78E14D</color>
     <color name="colorGreenDark">#62b83f</color>
-    <color name="colorRed">#E53935</color>
+    <color name="colorRed">#fc161b</color> <!-- #e53935 -->
     <color name="colorRedDark">#C62828</color>
 
     <!-- Base -->

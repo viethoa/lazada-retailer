@@ -34,9 +34,9 @@ public class StoreServiceImpl extends BaseServices implements StoreService {
             handleResponse(storeAPIs.getAllStores(userID), new InternalProcess<NetworkResponse<List<Store>>>() {
                 @Override
                 public void processInternally(NetworkResponse<List<Store>> response) {
-                    if (response != null && response.getData() != null) {
-                        storeMemoryCache.set(response.getData());
-                    }
+                    //if (response != null && response.getData() != null) {
+                        //storeMemoryCache.set(response.getData());
+                    //}
                 }
             }, null, subscriber);
         });

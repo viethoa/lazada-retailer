@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.viethoa.lazadaretailer">
 
@@ -11,7 +12,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <service
             android:name=".service.SyncOrderService"
             android:exported="false" />
@@ -28,7 +28,8 @@
         <activity
             android:name=".screens.home.HomeActivity"
             android:screenOrientation="portrait" />
-
+        <activity android:name=".screens.store.StoreActivity" />
+        <activity android:name=".screens.scan.ScanActivity"></activity>
     </application>
 
 </manifest>

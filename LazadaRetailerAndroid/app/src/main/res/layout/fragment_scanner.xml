@@ -6,7 +6,7 @@
     <FrameLayout
         android:id="@+id/scanner_content"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_200_dp" />
+        android:layout_height="@dimen/space_180_dp" />
 
     <Button
         android:id="@+id/btn_push_order"
@@ -16,25 +16,126 @@
         android:background="@drawable/button_second"
         android:text="@string/scanner_btn_push_order" />
 
-    <TextView
-        android:id="@+id/tv_order_title"
-        style="@style/text_light_medium"
+    <LinearLayout
+        android:id="@+id/content_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/scanner_content"
-        android:background="@color/colorLine"
-        android:paddingRight="@dimen/space_16_dp"
-        android:paddingLeft="@dimen/space_16_dp"
-        android:paddingStart="@dimen/space_16_dp"
-        android:paddingEnd="@dimen/space_16_dp"
-        android:paddingBottom="@dimen/space_08_dp"
-        android:paddingTop="@dimen/space_08_dp"
-        android:text="@string/scanner_order_title" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_order_title"
+            style="@style/text_bright_medium"
+            android:layout_width="@dimen/empty_space"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:paddingBottom="@dimen/space_14_dp"
+            android:paddingEnd="@dimen/space_16_dp"
+            android:paddingLeft="@dimen/space_16_dp"
+            android:paddingRight="@dimen/space_16_dp"
+            android:paddingStart="@dimen/space_16_dp"
+            android:paddingTop="@dimen/space_14_dp"
+            android:text="@string/scanner_text_order_date"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="@dimen/line_dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorHint" />
+
+        <TextView
+            android:id="@+id/tv_sum"
+            style="@style/text_bright_medium"
+            android:layout_width="@dimen/empty_space"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:ellipsize="start"
+            android:gravity="end"
+            android:maxLines="1"
+            android:paddingBottom="@dimen/space_14_dp"
+            android:paddingEnd="@dimen/space_16_dp"
+            android:paddingLeft="@dimen/space_16_dp"
+            android:paddingRight="@dimen/space_16_dp"
+            android:paddingStart="@dimen/space_16_dp"
+            android:paddingTop="@dimen/space_14_dp"
+            android:text="@string/scanner_text_total_order"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/table_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content_info"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/text_dark_large"
+            android:layout_width="@dimen/empty_space"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:padding="@dimen/space_14_dp"
+            android:text="@string/scanner_text_order"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="@dimen/line_px"
+            android:layout_height="match_parent"
+            android:background="@color/colorHint" />
+
+        <TextView
+            style="@style/text_dark_large"
+            android:layout_width="@dimen/empty_space"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/space_14_dp"
+            android:text="@string/scanner_text_scan_time"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="@dimen/line_px"
+            android:layout_height="match_parent"
+            android:background="@color/colorHint" />
+
+        <TextView
+            style="@style/text_dark_large"
+            android:layout_width="@dimen/empty_space"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:padding="@dimen/space_14_dp"
+            android:text="@string/scanner_text_gam"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="@dimen/line_px"
+            android:layout_height="match_parent"
+            android:background="@color/colorHint" />
+
+        <TextView
+            style="@style/text_dark_large"
+            android:layout_width="@dimen/space_60_dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_14_dp"
+            android:text="@string/scanner_text_delete"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/table_title_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_px"
+        android:layout_below="@id/table_title"
+        android:background="@color/colorHint" />
 
     <ListView
         android:id="@+id/ls_orders"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/btn_push_order"
-        android:layout_below="@id/tv_order_title" />
+        android:layout_below="@id/table_title"
+        android:divider="@color/colorHint"
+        android:dividerHeight="@dimen/line_px" />
 </RelativeLayout>

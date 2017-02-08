@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:keepScreenOn="true">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorLine"
+        android:elevation="@dimen/elevation_08_dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ToolbarStyle"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp"
+        app:popupTheme="@style/ToolbarPopup"
+        app:titleTextAppearance="@style/Toolbar.TitleText">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/toolbar_icon"
+                android:layout_width="@dimen/space_50_dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/space_08_dp"
+                android:layout_marginStart="@dimen/space_08_dp"
+                android:padding="@dimen/space_08_dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_ready_to_ship" />
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                style="@style/text_primary_dark_large"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/space_08_dp"
+                android:layout_marginStart="@dimen/space_08_dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/store_btn_ready_to_ship"
+                android:textSize="@dimen/font_16_sp" />
+
+            <CheckBox
+                android:id="@+id/cb_gam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/space_10_dp"
+                android:layout_marginRight="@dimen/space_10_dp"
+                android:text="@string/scan_text_gam" />
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:id="@+id/fragment_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar" />
+</RelativeLayout>

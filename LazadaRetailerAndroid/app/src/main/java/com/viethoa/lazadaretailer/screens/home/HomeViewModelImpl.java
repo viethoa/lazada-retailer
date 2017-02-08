@@ -25,8 +25,6 @@ public class HomeViewModelImpl extends BaseViewModel<HomeViewModel.Listener> imp
     @Inject
     StoreService storeService;
     @Inject
-    StoreMemoryCache storeMemoryCache;
-    @Inject
     UserMemoryCache userMemoryCache;
 
     @Inject
@@ -47,10 +45,6 @@ public class HomeViewModelImpl extends BaseViewModel<HomeViewModel.Listener> imp
         if (userMemoryCache.get() == null) {
             forceLogout();
             return;
-        }
-
-        if (storeMemoryCache.get() != null) {
-            listener.getAllStoresSuccess(storeMemoryCache.get());
         }
 
         manageSubscription(storeService.getAllStores(userMemoryCache.getUserID())

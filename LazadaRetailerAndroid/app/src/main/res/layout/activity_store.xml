@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_store"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="@dimen/elevation_08_dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ToolbarStyle"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp"
+        app:popupTheme="@style/ToolbarPopup"
+        app:titleTextAppearance="@style/Toolbar.TitleText">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/toolbar_icon"
+                android:layout_width="@dimen/space_50_dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/space_04_dp"
+                android:layout_marginStart="@dimen/space_04_dp"
+                android:padding="@dimen/space_08_dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_backpress" />
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                style="@style/text_bright_large"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/space_04_dp"
+                android:layout_marginStart="@dimen/space_04_dp"
+                android:gravity="center_vertical"
+                android:text="Store Name"
+                android:textSize="@dimen/font_16_sp" />
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/btn_ready_to_ship"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/empty_space"
+        android:layout_weight="1"
+        android:background="@drawable/button_bright_radius">
+
+        <ImageView
+            android:id="@+id/img_ready_to_ship"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/space_16_dp"
+            android:layout_marginStart="@dimen/space_16_dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_ready_to_ship" />
+
+        <TextView
+            style="@style/text_dark_large"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/img_ready_to_ship"
+            android:layout_toRightOf="@id/img_ready_to_ship"
+            android:gravity="center_vertical"
+            android:padding="@dimen/space_16_dp"
+            android:text="@string/store_btn_ready_to_ship"
+            android:textSize="@dimen/font_22_sp" />
+
+        <ImageView
+            android:layout_width="@dimen/space_40_dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_arrow_next_1" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_04_dp"
+        android:background="@color/colorLine" />
+
+    <RelativeLayout
+        android:id="@+id/btn_delivery_fail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/empty_space"
+        android:layout_weight="1"
+        android:background="@drawable/button_bright_radius">
+
+        <ImageView
+            android:id="@+id/img_delivery_fail"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/space_16_dp"
+            android:layout_marginStart="@dimen/space_16_dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_order_cancelled" />
+
+        <TextView
+            style="@style/text_dark_large"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/img_delivery_fail"
+            android:layout_toRightOf="@id/img_delivery_fail"
+            android:gravity="center_vertical"
+            android:padding="@dimen/space_16_dp"
+            android:text="@string/store_btn_delivery_fail"
+            android:textSize="@dimen/font_22_sp" />
+
+        <ImageView
+            android:layout_width="@dimen/space_40_dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_arrow_next_2" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_04_dp"
+        android:background="@color/colorLine" />
+
+    <RelativeLayout
+        android:id="@+id/btn_return"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/empty_space"
+        android:layout_weight="1"
+        android:background="@drawable/button_bright_radius">
+
+        <ImageView
+            android:id="@+id/img_return"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/space_16_dp"
+            android:layout_marginStart="@dimen/space_16_dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_order_returned" />
+
+        <TextView
+            style="@style/text_dark_large"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/img_return"
+            android:layout_toRightOf="@id/img_return"
+            android:gravity="center_vertical"
+            android:padding="@dimen/space_16_dp"
+            android:text="@string/store_btn_return"
+            android:textSize="@dimen/font_22_sp" />
+
+        <ImageView
+            android:layout_width="@dimen/space_40_dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_arrow_next_3" />
+    </RelativeLayout>
+</LinearLayout>

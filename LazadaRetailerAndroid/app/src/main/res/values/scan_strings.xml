@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="scan_text_gam">Gam</string>
+
+    <!-- Scanner fragment -->
+    <string name="scanner_btn_push_order">Hoàn Thành</string>
+    <string name="scanner_error_order_already_exist">Đơn hàng này đã được quest code rồi</string>
+    <string name="scanner_error_store_null">Giang hàng đã bị xóa, xin hãy chọn gian hàng khác !</string>
+    <string name="scanner_error_delete_order_null">Đơn hàng lỗi không thể xóa, hãy tắt ứng dụng đi mở lại !</string>
+    <string name="scanner_error_delete_order_not_exist">Đơn hàng lỗi không thể xóa, hãy tắt ứng dụng đi mở lại !</string>
+    <string name="scanner_error_barcode_null">Barcode không đúng, xin hãy quest lại !</string>
+    <string name="scanner_leave_scan_title">Bạn có muốn thoát khỏi màn hình này?</string>
+    <string name="scanner_leave_scan_message">Nếu thoát khỏi màn hình scan barcode, tất cả order sẽ bị mất. Bạn có chắc chắn muốn thoát khỏi màn hình này?</string>
+    <string name="scanner_leave_scan_ok">OK</string>
+    <string name="scanner_leave_scan_cancel">CANCEL</string>
+    <string name="scanner_warning_save_order">Bạn không có Order nào để lưu vào server !</string>
+    <string name="scanner_sync_order_title">Đang lưu Order lên server...</string>
+    <string name="scanner_sync_order_message">Làm ơn đợi trong giây lát.\nXin đừng tắt điện thoại hoặc internet.\nKhông rời xa internet phủ xóng để quá trình được thực hiện tốt.\n\nXin cảm ơn !</string>
+    <string name="scanner_text_total_order">Tổng đơn hàng: %s</string>
+    <string name="scanner_text_order_date">Ngày giao: %s</string>
+    <string name="scanner_text_order">Đơn Hàng</string>
+    <string name="scanner_text_scan_time">Giờ Quét</string>
+    <string name="scanner_text_gam">Gam</string>
+    <string name="scanner_text_delete">Xóa</string>
+</resources>

@@ -6,32 +6,44 @@
     card_view:cardCornerRadius="4dp"
     card_view:cardUseCompatPadding="true">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/img_store"
+            android:layout_width="@dimen/space_100_dp"
+            android:layout_height="@dimen/space_100_dp"
+            android:padding="@dimen/space_12_dp"
+            android:background="@color/colorLine"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_store_3" />
+
         <TextView
             android:id="@+id/txt_title"
-            style="@style/text_primary_dark_medium"
+            style="@style/text_primary_dark_large"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorLine"
-            android:padding="@dimen/space_16_dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/img_store"
+            android:layout_toRightOf="@id/img_store"
+            android:maxLines="2"
+            android:padding="@dimen/space_12_dp"
             android:text="STORE NAME HERE"
             android:textAllCaps="true"
+            android:ellipsize="end"
+            android:textSize="@dimen/font_18_sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txt_created_time"
-            style="@style/text_dark_medium"
+            style="@style/text_light_medium"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/space_16_dp"
-            android:layout_marginTop="@dimen/space_10_dp"
-            android:layout_marginBottom="@dimen/space_10_dp"
-            android:text="Tạo ngày 15/5/2015"
-            android:textAllCaps="true"
-            android:textStyle="bold" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_title"
+            android:layout_marginLeft="@dimen/space_12_dp"
+            android:layout_marginStart="@dimen/space_12_dp"
+            android:layout_toEndOf="@id/img_store"
+            android:layout_toRightOf="@id/img_store"
+            android:text="Tạo ngày 15/5/2015" />
+    </RelativeLayout>
 </android.support.v7.widget.CardView>

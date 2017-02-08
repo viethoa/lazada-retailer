@@ -5,21 +5,4 @@
     <string name="store_text_no_data">Bạn không có gian hàng nào</string>
     <string name="store_text_name">Gian hàng: %s</string>
     <string name="store_text_created_time">Tạo ngày: %s</string>
-
-    <!-- Scanner fragment -->
-    <string name="scanner_order_title">Danh Sách Order</string>
-    <string name="scanner_btn_delete">Xóa</string>
-    <string name="scanner_btn_push_order">Lưu vào Server</string>
-    <string name="scanner_error_order_already_exist">Đơn hàng này đã được quest code rồi</string>
-    <string name="scanner_error_store_null">Giang hàng đã bị xóa, xin hãy chọn gian hàng khác !</string>
-    <string name="scanner_error_delete_order_null">Đơn hàng lỗi không thể xóa, hãy tắt ứng dụng đi mở lại !</string>
-    <string name="scanner_error_delete_order_not_exist">Đơn hàng lỗi không thể xóa, hãy tắt ứng dụng đi mở lại !</string>
-    <string name="scanner_error_barcode_null">Barcode không đúng, xin hãy quest lại !</string>
-    <string name="scanner_leave_scan_title">Bạn có muốn thoát khỏi màn hình này?</string>
-    <string name="scanner_leave_scan_message">Nếu thoát khỏi màn hình scan barcode, tất cả order sẽ bị mất. Bạn có chắc chắn muốn thoát khỏi màn hình này?</string>
-    <string name="scanner_leave_scan_ok">OK</string>
-    <string name="scanner_leave_scan_cancel">CANCEL</string>
-    <string name="scanner_warning_save_order">Bạn không có Order nào để lưu vào server !</string>
-    <string name="scanner_sync_order_title">Đang lưu Order lên server...</string>
-    <string name="scanner_sync_order_message">Làm ơn đợi trong giây lát.\nXin đừng tắt điện thoại hoặc internet.\nKhông rời xa internet phủ xóng để quá trình được thực hiện tốt.\n\nXin cảm ơn !</string>
 </resources>
