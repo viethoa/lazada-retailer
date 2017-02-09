@@ -6,10 +6,6 @@
     <color name="colorPrimaryDark50">#80014468</color>
     <color name="colorAccent">#006AA2</color>
 
-    <color name="textColorPrimary">#FFFFFF</color>
-    <color name="windowBackground">#FFFFFF</color>
-    <color name="navigationBarColor">#000000</color>
-
     <color name="colorSecond">#25B6F2</color>
     <color name="colorSecondDark">#1c89b6</color>
     <color name="colorThird">#54dac4</color>

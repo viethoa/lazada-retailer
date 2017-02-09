@@ -55,7 +55,7 @@ public class StoreActivity extends BaseSnackBarActivity {
 
         // Set title name
         if (!TextUtils.isEmpty(store.getName())) {
-            toolbarTitle.setText(store.getName());
+            toolbarTitle.setText(store.getName().toUpperCase());
         }
 
         // Init tabs

@@ -32,7 +32,7 @@
                 android:layout_marginStart="@dimen/space_04_dp"
                 android:padding="@dimen/space_08_dp"
                 android:scaleType="centerInside"
-                android:src="@mipmap/ic_backpress" />
+                android:src="@mipmap/ic_store_3" />
 
             <TextView
                 android:id="@+id/toolbar_title"
@@ -42,6 +42,7 @@
                 android:layout_marginLeft="@dimen/space_04_dp"
                 android:layout_marginStart="@dimen/space_04_dp"
                 android:gravity="center_vertical"
+                android:textAllCaps="true"
                 android:text="Store Name"
                 android:textSize="@dimen/font_16_sp" />
         </LinearLayout>
@@ -51,6 +52,7 @@
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorLine"
         app:tabMode="fixed"
         app:tabGravity="fill"/>
 
