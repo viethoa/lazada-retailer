@@ -3,8 +3,11 @@ package com.viethoa.lazadaretailer.screens.login;
 import android.Manifest;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.viethoa.lazadaretailer.R;
@@ -21,6 +24,7 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.OnClick;
+import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
 
 public class LoginActivity extends BaseSnackBarActivity implements LoginViewModel.Listener {
@@ -136,5 +140,15 @@ public class LoginActivity extends BaseSnackBarActivity implements LoginViewMode
     public void onLoginSuccess() {
         dismissLoadingDialog();
         loginRouter.navigateToHomeActivity(this);
+    }
+
+    @OnEditorAction(R.id.et_password)
+    public boolean onKeyboardEnterForLogin(TextView v, int actionId, KeyEvent event) {
+        if (actionId == EditorInfo.IME_ACTION_DONE) {
+            btnLoginClicked();
+            return true;
+        }
+
+        return false;
     }
 }
