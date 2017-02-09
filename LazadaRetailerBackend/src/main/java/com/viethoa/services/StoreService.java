@@ -1,6 +1,7 @@
 package com.viethoa.services;
 
 import com.viethoa.database.StoreDao;
+import com.viethoa.database.UserDao;
 import com.viethoa.models.Store;
 import org.springframework.util.StringUtils;
 
@@ -33,8 +34,9 @@ public class StoreService {
 
     public synchronized List<Store> getAll(long userID) throws Exception {
         StoreDao storeDao = new StoreDao();
-        if (!storeDao.isExist(userID)) {
-            throw new Exception("Gian hàng này không tồn tại hoặc đã bị xóa");
+        UserDao userDao = new UserDao();
+        if (!userDao.isExist(userID)) {
+            throw new Exception("User không tồn tại");
         }
 
         return storeDao.getAll(userID);

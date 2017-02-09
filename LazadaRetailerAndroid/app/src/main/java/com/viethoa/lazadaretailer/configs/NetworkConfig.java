@@ -6,5 +6,5 @@ package com.viethoa.lazadaretailer.configs;
 
 public class NetworkConfig {
 
-    public static final String ENDPOINT = "http://v103-18-4-11.myvps.vn:3000";
+    public static final String ENDPOINT = "http://localhost:3000";
 }

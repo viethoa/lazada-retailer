@@ -4,7 +4,7 @@ import com.viethoa.lazadaretailer.di.ActivityScope;
 import com.viethoa.lazadaretailer.di.ApplicationComponent;
 import com.viethoa.lazadaretailer.di.BaseComponent;
 import com.viethoa.lazadaretailer.screens.home.HomeActivity;
-import com.viethoa.lazadaretailer.screens.home.scanbarcodefragment.ScannerFragment;
+import com.viethoa.lazadaretailer.screens.scan.scanbarcodefragment.ScannerFragment;
 import com.viethoa.lazadaretailer.screens.home.storefragment.StoreFragment;
 
 import dagger.Component;

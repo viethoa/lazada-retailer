@@ -1,4 +1,4 @@
-package com.viethoa.lazadaretailer.screens.home.scanbarcodefragment;
+package com.viethoa.lazadaretailer.screens.scan.scanbarcodefragment;
 
 /**
  * Created by VietHoa on 24/01/2017.

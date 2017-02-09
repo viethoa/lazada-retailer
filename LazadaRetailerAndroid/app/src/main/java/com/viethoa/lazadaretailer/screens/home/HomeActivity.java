@@ -3,14 +3,10 @@ package com.viethoa.lazadaretailer.screens.home;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.viethoa.lazadaretailer.R;
@@ -22,12 +18,10 @@ import com.viethoa.lazadaretailer.di.homemodule.HomeModule;
 import com.viethoa.lazadaretailer.models.Store;
 import com.viethoa.lazadaretailer.screens.BriefObserver;
 import com.viethoa.lazadaretailer.screens.baseviews.BaseSnackBarActivity;
-import com.viethoa.lazadaretailer.screens.home.scanbarcodefragment.ScannerFragment;
-import com.viethoa.lazadaretailer.screens.home.scanbarcodefragment.ScannerFragmentListener;
+import com.viethoa.lazadaretailer.screens.scan.scanbarcodefragment.ScannerFragment;
+import com.viethoa.lazadaretailer.screens.scan.scanbarcodefragment.ScannerFragmentListener;
 import com.viethoa.lazadaretailer.screens.home.storefragment.StoreFragment;
 import com.viethoa.lazadaretailer.screens.home.storefragment.StoreFragmentListener;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 

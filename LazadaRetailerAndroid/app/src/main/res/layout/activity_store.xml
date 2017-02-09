@@ -47,121 +47,134 @@
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
-    <RelativeLayout
-        android:id="@+id/btn_ready_to_ship"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/empty_space"
-        android:layout_weight="1"
-        android:background="@drawable/button_bright_radius">
+        android:layout_height="wrap_content"
+        app:tabMode="fixed"
+        app:tabGravity="fill"/>
 
-        <ImageView
-            android:id="@+id/img_ready_to_ship"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/space_16_dp"
-            android:layout_marginStart="@dimen/space_16_dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/ic_ready_to_ship" />
-
-        <TextView
-            style="@style/text_dark_large"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_toEndOf="@id/img_ready_to_ship"
-            android:layout_toRightOf="@id/img_ready_to_ship"
-            android:gravity="center_vertical"
-            android:padding="@dimen/space_16_dp"
-            android:text="@string/store_btn_ready_to_ship"
-            android:textSize="@dimen/font_22_sp" />
-
-        <ImageView
-            android:layout_width="@dimen/space_40_dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:scaleType="centerInside"
-            android:src="@mipmap/ic_arrow_next_1" />
-    </RelativeLayout>
-
-    <View
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_04_dp"
-        android:background="@color/colorLine" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"  />
 
-    <RelativeLayout
-        android:id="@+id/btn_delivery_fail"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/empty_space"
-        android:layout_weight="1"
-        android:background="@drawable/button_bright_radius">
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/btn_ready_to_ship"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/empty_space"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@drawable/button_bright_radius">-->
 
-        <ImageView
-            android:id="@+id/img_delivery_fail"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/space_16_dp"
-            android:layout_marginStart="@dimen/space_16_dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/ic_order_cancelled" />
+        <!--<ImageView-->
+            <!--android:id="@+id/img_ready_to_ship"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginLeft="@dimen/space_16_dp"-->
+            <!--android:layout_marginStart="@dimen/space_16_dp"-->
+            <!--android:scaleType="fitCenter"-->
+            <!--android:src="@mipmap/ic_ready_to_ship" />-->
 
-        <TextView
-            style="@style/text_dark_large"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_toEndOf="@id/img_delivery_fail"
-            android:layout_toRightOf="@id/img_delivery_fail"
-            android:gravity="center_vertical"
-            android:padding="@dimen/space_16_dp"
-            android:text="@string/store_btn_delivery_fail"
-            android:textSize="@dimen/font_22_sp" />
+        <!--<TextView-->
+            <!--style="@style/text_dark_large"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_toEndOf="@id/img_ready_to_ship"-->
+            <!--android:layout_toRightOf="@id/img_ready_to_ship"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:padding="@dimen/space_16_dp"-->
+            <!--android:text="@string/store_btn_ready_to_ship"-->
+            <!--android:textSize="@dimen/font_22_sp" />-->
 
-        <ImageView
-            android:layout_width="@dimen/space_40_dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:scaleType="centerInside"
-            android:src="@mipmap/ic_arrow_next_2" />
-    </RelativeLayout>
+        <!--<ImageView-->
+            <!--android:layout_width="@dimen/space_40_dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:scaleType="centerInside"-->
+            <!--android:src="@mipmap/ic_arrow_next_1" />-->
+    <!--</RelativeLayout>-->
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/space_04_dp"
-        android:background="@color/colorLine" />
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/space_04_dp"-->
+        <!--android:background="@color/colorLine" />-->
 
-    <RelativeLayout
-        android:id="@+id/btn_return"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/empty_space"
-        android:layout_weight="1"
-        android:background="@drawable/button_bright_radius">
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/btn_delivery_fail"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/empty_space"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@drawable/button_bright_radius">-->
 
-        <ImageView
-            android:id="@+id/img_return"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/space_16_dp"
-            android:layout_marginStart="@dimen/space_16_dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/ic_order_returned" />
+        <!--<ImageView-->
+            <!--android:id="@+id/img_delivery_fail"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginLeft="@dimen/space_16_dp"-->
+            <!--android:layout_marginStart="@dimen/space_16_dp"-->
+            <!--android:scaleType="fitCenter"-->
+            <!--android:src="@mipmap/ic_order_cancelled" />-->
 
-        <TextView
-            style="@style/text_dark_large"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_toEndOf="@id/img_return"
-            android:layout_toRightOf="@id/img_return"
-            android:gravity="center_vertical"
-            android:padding="@dimen/space_16_dp"
-            android:text="@string/store_btn_return"
-            android:textSize="@dimen/font_22_sp" />
+        <!--<TextView-->
+            <!--style="@style/text_dark_large"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_toEndOf="@id/img_delivery_fail"-->
+            <!--android:layout_toRightOf="@id/img_delivery_fail"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:padding="@dimen/space_16_dp"-->
+            <!--android:text="@string/store_btn_delivery_fail"-->
+            <!--android:textSize="@dimen/font_22_sp" />-->
 
-        <ImageView
-            android:layout_width="@dimen/space_40_dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:scaleType="centerInside"
-            android:src="@mipmap/ic_arrow_next_3" />
-    </RelativeLayout>
+        <!--<ImageView-->
+            <!--android:layout_width="@dimen/space_40_dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:scaleType="centerInside"-->
+            <!--android:src="@mipmap/ic_arrow_next_2" />-->
+    <!--</RelativeLayout>-->
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/space_04_dp"-->
+        <!--android:background="@color/colorLine" />-->
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/btn_return"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/empty_space"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@drawable/button_bright_radius">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/img_return"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginLeft="@dimen/space_16_dp"-->
+            <!--android:layout_marginStart="@dimen/space_16_dp"-->
+            <!--android:scaleType="fitCenter"-->
+            <!--android:src="@mipmap/ic_order_returned" />-->
+
+        <!--<TextView-->
+            <!--style="@style/text_dark_large"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_toEndOf="@id/img_return"-->
+            <!--android:layout_toRightOf="@id/img_return"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:padding="@dimen/space_16_dp"-->
+            <!--android:text="@string/store_btn_return"-->
+            <!--android:textSize="@dimen/font_22_sp" />-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="@dimen/space_40_dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:scaleType="centerInside"-->
+            <!--android:src="@mipmap/ic_arrow_next_3" />-->
+    <!--</RelativeLayout>-->
 </LinearLayout>

@@ -109,18 +109,18 @@
             android:text="@string/scanner_text_gam"
             android:textStyle="bold" />
 
-        <View
-            android:layout_width="@dimen/line_px"
-            android:layout_height="match_parent"
-            android:background="@color/colorHint" />
+        <!--<View-->
+            <!--android:layout_width="@dimen/line_px"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/colorHint" />-->
 
-        <TextView
-            style="@style/text_dark_large"
-            android:layout_width="@dimen/space_60_dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/space_14_dp"
-            android:text="@string/scanner_text_delete"
-            android:textStyle="bold" />
+        <!--<TextView-->
+            <!--style="@style/text_dark_large"-->
+            <!--android:layout_width="@dimen/space_60_dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="@dimen/space_14_dp"-->
+            <!--android:text="@string/scanner_text_delete"-->
+            <!--android:textStyle="bold" />-->
     </LinearLayout>
 
     <View

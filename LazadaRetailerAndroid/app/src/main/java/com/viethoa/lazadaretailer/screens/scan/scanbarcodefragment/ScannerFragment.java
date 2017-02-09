@@ -1,10 +1,9 @@
-package com.viethoa.lazadaretailer.screens.home.scanbarcodefragment;
+package com.viethoa.lazadaretailer.screens.scan.scanbarcodefragment;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +21,6 @@ import com.viethoa.lazadaretailer.service.SyncOrderEventBus;
 import com.viethoa.lazadaretailer.service.SyncOrderService;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import butterknife.Bind;
@@ -46,6 +44,7 @@ public class ScannerFragment extends BaseSnackBarFragment implements
     private ScannerAdapter scannerAdapter;
     private List<Order> orders;
     private Store store;
+    private boolean isNeedGam;
 
     @Bind(R.id.ls_orders)
     ListView listViewOrder;
@@ -159,6 +158,10 @@ public class ScannerFragment extends BaseSnackBarFragment implements
 
     public boolean isProcessing() {
         return orders != null && orders.size() > 0;
+    }
+
+    public void onNeedGamForOrder(boolean isNeedGam) {
+        this.isNeedGam = isNeedGam;
     }
 
     @OnClick(R.id.btn_push_order)

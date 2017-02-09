@@ -1,4 +1,4 @@
-package com.viethoa.lazadaretailer.screens.home.scanbarcodefragment;
+package com.viethoa.lazadaretailer.screens.scan.scanbarcodefragment;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -44,8 +44,8 @@ public class ScannerAdapter extends BaseArrayAdapter<Order> {
     static class HelpViewHolder {
         @Bind(R.id.tv_order_no)
         TextView tvOrderNo;
-        @Bind(R.id.btn_delete)
-        View btnDelete;
+        //@Bind(R.id.btn_delete)
+        //View btnDelete;
 
         HelpViewHolder(View itemView) {
             ButterKnife.bind(this, itemView);
@@ -57,11 +57,11 @@ public class ScannerAdapter extends BaseArrayAdapter<Order> {
             }
 
             tvOrderNo.setText(order.getOrderNo());
-            btnDelete.setOnClickListener(view -> {
-                if (listener != null) {
-                    listener.onOrderItemsDeleteButtonClicked(order);
-                }
-            });
+//            btnDelete.setOnClickListener(view -> {
+//                if (listener != null) {
+//                    listener.onOrderItemsDeleteButtonClicked(order);
+//                }
+//            });
         }
     }
 }

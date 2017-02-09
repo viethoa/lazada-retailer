@@ -100,4 +100,22 @@ public class UserDao {
 
         return isExist;
     }
+
+    public boolean isExist(long userID) {
+        boolean isExist = false;
+        try {
+            Statement stmt = DatabaseManager.getDataSource().getConnection().createStatement();
+            String sql = String.format("SELECT * FROM %s WHERE %s = '%s'", TABLE_NAME, ID, userID);
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                isExist = true;
+            }
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return isExist;
+    }
 }

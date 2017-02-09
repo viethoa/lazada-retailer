@@ -1,4 +1,4 @@
-package com.viethoa.lazadaretailer.screens.home.scanbarcodefragment;
+package com.viethoa.lazadaretailer.screens.scan.scanbarcodefragment;
 
 import com.viethoa.lazadaretailer.models.Order;
 

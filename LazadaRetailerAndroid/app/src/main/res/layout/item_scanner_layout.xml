@@ -42,19 +42,19 @@
         android:padding="@dimen/space_14_dp"
         android:text="11,000" />
 
-    <View
-        android:layout_width="@dimen/line_px"
-        android:layout_height="match_parent"
-        android:background="@color/colorHint" />
+    <!--<View-->
+        <!--android:layout_width="@dimen/line_px"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/colorHint" />-->
 
-    <ImageView
-        android:id="@+id/btn_delete"
-        android:layout_width="@dimen/space_60_dp"
-        android:layout_height="wrap_content"
-        android:paddingEnd="@dimen/space_16_dp"
-        android:paddingLeft="@dimen/space_16_dp"
-        android:paddingRight="@dimen/space_16_dp"
-        android:paddingStart="@dimen/space_16_dp"
-        android:scaleType="centerInside"
-        android:src="@mipmap/ic_delete" />
+    <!--<ImageView-->
+        <!--android:id="@+id/btn_delete"-->
+        <!--android:layout_width="@dimen/space_60_dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingEnd="@dimen/space_16_dp"-->
+        <!--android:paddingLeft="@dimen/space_16_dp"-->
+        <!--android:paddingRight="@dimen/space_16_dp"-->
+        <!--android:paddingStart="@dimen/space_16_dp"-->
+        <!--android:scaleType="centerInside"-->
+        <!--android:src="@mipmap/ic_delete" />-->
 </LinearLayout>
